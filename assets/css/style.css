@@ -1,1 +1,81 @@
-
+html{
+  font-size: 3vmin;
+}
+body{
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+#containerOfAllTheThings{
+  height: 80vh;
+  width: 65vw;
+  margin: auto;
+}
+header{
+  display: flex;
+  background-color: red;
+  height: 15%;
+  justify-content: center;
+  text-align: center;
+}
+.title{
+  font-size: 5vmin;
+  margin: auto;
+}
+#contentContainer{
+  display: flex;
+  height: 85%;
+}
+aside{
+  background-color: blue;
+  width: 20%;
+}
+.stats{
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.stats > *{
+  margin: 10% 0%;
+}
+main{
+  background-color: green;
+  width: 80%;
+}
+#container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.row{
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  margin: 2% 0%;
+}
+.card{
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  margin: 0% 2%;
+}
+.front, .back{
+  position: absolute;
+  /* left: 0px;
+  top: 0px; */
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.front{
+  background-image: url("../images/lfz-card.jpg");
+}
+.back{
+  display: none;
+  background-image: url("../images/js-logo.png");
+}
