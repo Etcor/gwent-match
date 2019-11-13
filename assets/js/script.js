@@ -8,6 +8,7 @@ var attempts = null;//increment after an attempted match
 var maxMatches = 2;
 
 function initializeApp(){
+  buildCardGame();
   var cardElement = $('.card');
   cardElement.on('click', handleCardClick); //click handler for cards
   var resetGame = $('#resetStats');
@@ -88,6 +89,24 @@ function handleCardClick(event){
     displayStats();
     }
   if (matches === maxMatches) {
-    handleModal();//Modal call
+    setTimeout(function(){handleModal()}, 1000);
+    // handleModal();//Modal call
+  }
+}
+
+function buildCardGame(){
+  var cardBoard = {rows: 3, cards: 6};
+  var cardGame = $('#container');
+
+  for (var rows = 0; rows < cardBoard.rows; rows++) {
+    var newCardRow = $('<div>').addClass('row');
+    for (var cards = 0; cards < cardBoard.cards; cards++) {
+      var newCardDiv = $('<div>').addClass('card');
+      var newCardFront = $('<div>').addClass('front')
+      var newCardBack = $('<div>').addClass('back')
+      newCardDiv.append(newCardFront, newCardBack);
+      newCardRow.append(newCardDiv);
+    }
+    cardGame.append(newCardRow);
   }
 }
