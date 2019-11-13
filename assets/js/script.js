@@ -5,7 +5,7 @@ var secondCardClicked = null;
 var matches = null; //increment after every successful match
 var gamesPlayed = 0; //increment after all cards have been matched
 var attempts = null;//increment after an attempted match
-var maxMatches = 2;
+var maxMatches = 1;
 
 function initializeApp(){
   buildCardGame();
@@ -40,6 +40,7 @@ function displayStats(){
 }
 
 function resetStats(){
+  debugger;
   gamesPlayed++;
   matches = 0;
   attempts = 0;
