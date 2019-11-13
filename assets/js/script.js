@@ -3,7 +3,7 @@ $(document).ready(initializeApp);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null; //increment after every successful match
-var gamesPlayed = null; //increment after all cards have been matched
+var gamesPlayed = 0; //increment after all cards have been matched
 var attempts = null;//increment after an attempted match
 
 
@@ -12,11 +12,33 @@ function initializeApp(){
   cardElement.on('click', handleCardClick); //click handler for cards
 }
 
-// function resetStats(){
-//   gamesPlayed += 1;
-//   matches = null;
-//   attempts = null;
-// }
+function calculateAccuracy(){
+  var accFraction = matches / attempts; // WHEN RESETTING GAME 0/0 & null/null is NaN
+  if(isNaN(accFraction)){ //ASK FOR HELP ON THIS
+    accFraction = 0;
+  }
+  var accuracyPercentage = 0;  //calculates accuracy of user
+  if(accFraction !== 0){
+    accuracyPercentage = Math.round(accFraction * 100);
+  }
+  return accuracyPercentage;
+}
+
+function displayStats(){
+  var accuracy = calculateAccuracy();
+  $('#gamesPlayedNumber').text(gamesPlayed);
+  $('#attemptsNumber').text(attempts);
+  $('#accuracyNumber').text(accuracy + '%');
+}
+function resetStats(){
+  debugger;
+  gamesPlayed += 1;
+  matches = 0;
+  attempts = 0;
+  var cardBack = $('.back');
+  cardBack.removeClass('hidden');
+  displayStats();
+}
 
 function handleCardClick(event){
   var currentTarget = $(event.currentTarget); //selects the card that is clicked
@@ -44,9 +66,6 @@ function handleCardClick(event){
         secondCardClicked = null;
         matches += 1; //on successful match, increments match var
     }
-    var accuracy = matches / attempts;
-    var accuracyPercentage = Math.round(accuracy * 100); //calculates accuracy of user
-    $('#attemptsNumber').text(attempts);
-    $('#accuracyNumber').text(accuracyPercentage + '%');
+    displayStats();
   }
 }
