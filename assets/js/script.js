@@ -40,7 +40,6 @@ function displayStats(){
 }
 
 function resetStats(){
-  debugger;
   gamesPlayed++;
   matches = 0;
   attempts = 0;
@@ -91,7 +90,6 @@ function handleCardClick(event){
     }
   if (matches === maxMatches) {
     setTimeout(function(){handleModal()}, 1000);
-    // handleModal();//Modal call
   }
 }
 
