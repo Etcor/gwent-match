@@ -3,13 +3,15 @@ $(document).ready(initializeApp);
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null; //increment after every successful match
-var gamesPlayed = null; //increment after all cards have been matched
+var gamesPlayed = 0; //increment after all cards have been matched
 var attempts = null;//increment after an attempted match
 var maxMatches = 2;
 
 function initializeApp(){
   var cardElement = $('.card');
   cardElement.on('click', handleCardClick); //click handler for cards
+  var resetGame = $('#resetStats');
+  resetGame.on('click', resetStats);
 }
 
 function calculateAccuracy(){
@@ -24,6 +26,11 @@ function calculateAccuracy(){
   return accuracyPercentage;
 }
 
+function handleModal() {
+  var modalOnVictory = $('#modalResetStats');
+  modalOnVictory.removeClass('hidden');
+}
+
 function displayStats(){
   var accuracy = calculateAccuracy();
   $('#gamesPlayedNumber').text(gamesPlayed);
@@ -32,52 +39,55 @@ function displayStats(){
 }
 
 function resetStats(){
-  debugger; // This is being called twice, why?
   gamesPlayed++;
   matches = 0;
   attempts = 0;
   var cardBack = $('.back');
+  var modalElement = $('#modalResetStats');
   cardBack.removeClass('hidden');
-  $('#modalResetStats').addClass('hidden');
+  $('.card').removeClass('clicked');
+  modalElement.addClass('hidden');
   displayStats();
-}
-
-function handleModal() {
-  var modalOnVictory = $('#modalResetStats');
-  modalOnVictory.removeClass('hidden');
-  var resetGame = $('#resetStats');
-  resetGame.on('click', resetStats);
 }
 
 function handleCardClick(event){
   var currentTarget = $(event.currentTarget); //selects the card that is clicked
   currentTarget.find('.back').addClass('hidden'); //hides the back of the card, revealing the face
-
+  if (currentTarget.hasClass('clicked')) {
+    return;
+  }
   if(firstCardClicked === null){ // uses previous selector to assign clicked card to variable
     firstCardClicked = currentTarget;
-  }else{
+    currentTarget.addClass('clicked');
+  } else if(secondCardClicked === null){
     secondCardClicked = currentTarget;
+    currentTarget.addClass('clicked');
   }
-
   if(firstCardClicked !== null && secondCardClicked !== null){ //conditional checking if both cards have been clicked
     attempts += 1;//on any match attempt, increments attemps var
     var firstCardImage = firstCardClicked.find('.front').css('background-image');//finds bg img for comp.
     var secondCardImage = secondCardClicked.find('.front').css('background-image');//finds bg img for comp.
+
     if(firstCardImage !== secondCardImage){//checks if they are the same img
+      var cardElement = $('.card');
+      cardElement.off('click', handleCardClick);
         setTimeout(function () {//timer to reset css on card if img doesnt match
           firstCardClicked.find('.back').removeClass('hidden');
           secondCardClicked.find('.back').removeClass('hidden');
+          firstCardClicked.removeClass('clicked');
+          secondCardClicked.removeClass('clicked');
           firstCardClicked = null;
           secondCardClicked = null;
+          cardElement.on('click', handleCardClick);
           }, 1500);
       }else{ //resets clicked card variables on success or failure
         firstCardClicked = null;
         secondCardClicked = null;
         matches += 1; //on successful match, increments match var
-        if(matches === maxMatches){
-          handleModal();//Modal call
         }
-    }
     displayStats();
+    }
+  if (matches === maxMatches) {
+    handleModal();//Modal call
   }
 }
