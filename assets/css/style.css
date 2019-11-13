@@ -63,7 +63,7 @@ main{
   width: 100%;
   margin: 0% 2%;
 }
-.front, .back, .gitHubLogo, .htmlLogo, .phpLogo, .mySqlLogo{
+.front, .back, .cssLogo, .dockerLogo, .jsLogo, .nodeLogo, .reactLogo, .gitHubLogo, .htmlLogo, .phpLogo, .mySqlLogo{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -76,17 +76,32 @@ main{
 /* .front{
   background-image: url("../images/js-logo.png");
 } */
+.cssLogo{
+  background-image: url("../images/css-logo.png");
+}
+.dockerLogo{
+  background-image: url("../images/docker-logo.jpg");
+}
 .gitHubLogo{
   background-image: url("../images/gitHub-logo.png");
 }
 .htmlLogo{
   background-image: url("../images/html-logo.png");
 }
+.jsLogo{
+  background-image: url("../images/js-logo.png");
+}
 .phpLogo{
   background-image: url("../images/php-logo.jpeg");
 }
 .mySqlLogo{
   background-image: url("../images/mysql-logo.jpg");
+}
+.nodeLogo{
+  background-image: url("../images/node-logo.png");
+}
+.reactLogo{
+  background-image: url("../images/react-logo.png");
 }
 .hidden{
   display: none;
