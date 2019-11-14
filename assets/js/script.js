@@ -9,8 +9,8 @@ var maxMatches = 1;
 
 function initializeApp(){
   buildCardGame();
-  var cardElement = $('.card');
-  cardElement.on('click', handleCardClick); //click handler for cards
+  var cardContainer = $('#container');
+  cardContainer.on('click', '.card', handleCardClick); //click handler for cards
   var resetGame = $('#resetStats');
   resetGame.on('click', resetStats);
 }
@@ -43,11 +43,11 @@ function resetStats(){
   gamesPlayed++;
   matches = 0;
   attempts = 0;
-  var cardBack = $('.back');
+  var cardContainer = $('#container');
   var modalElement = $('#modalResetStats');
-  cardBack.removeClass('hidden');
-  $('.card').removeClass('clicked');
   modalElement.addClass('hidden');
+  cardContainer.empty();
+  buildCardGame();
   displayStats();
 }
 
@@ -70,8 +70,8 @@ function handleCardClick(event){
     var secondCardImage = secondCardClicked.find('.front').css('background-image');//finds bg img for comp.
 
     if(firstCardImage !== secondCardImage){//checks if they are the same img
-      var cardElement = $('.card');
-      cardElement.off('click', handleCardClick);
+      var cardContainer = $('#container');
+      cardContainer.off('click', '.card', handleCardClick); //click handler for cards
         setTimeout(function () {//timer to reset css on card if img doesnt match
           firstCardClicked.find('.back').removeClass('hidden');
           secondCardClicked.find('.back').removeClass('hidden');
@@ -79,7 +79,7 @@ function handleCardClick(event){
           secondCardClicked.removeClass('clicked');
           firstCardClicked = null;
           secondCardClicked = null;
-          cardElement.on('click', handleCardClick);
+          cardContainer.on('click', '.card', handleCardClick);
           }, 1500);
       }else{ //resets clicked card variables on success or failure
         firstCardClicked = null;
@@ -96,16 +96,50 @@ function handleCardClick(event){
 function buildCardGame(){
   var cardBoard = {rows: 3, cards: 6};
   var cardGame = $('#container');
+  var randomClasses = randomizeCards();
 
   for (var rows = 0; rows < cardBoard.rows; rows++) {
     var newCardRow = $('<div>').addClass('row');
     for (var cards = 0; cards < cardBoard.cards; cards++) {
       var newCardDiv = $('<div>').addClass('card');
-      var newCardFront = $('<div>').addClass('front')
+      var randomClassFront = randomClasses.pop();
+      var newCardFront = $('<div>').addClass('front').addClass(randomClassFront);
       var newCardBack = $('<div>').addClass('back')
       newCardDiv.append(newCardFront, newCardBack);
       newCardRow.append(newCardDiv);
     }
     cardGame.append(newCardRow);
   }
+}
+
+function randomizeCards(){
+  var classArray = [
+    'cssLogo',
+    'dockerLogo',
+    'jsLogo',
+    'nodeLogo',
+    'reactLogo',
+    'gitHubLogo',
+    'htmlLogo',
+    'phpLogo',
+    'mySqlLogo',
+  ];
+  var classArrayDoubled = classArray.concat(classArray);
+  return shuffle(classArrayDoubled);
+}
+
+function shuffle(array) {
+  var currentIndex = array.length;
+  var temporaryValue;
+  var randomIndex;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 }
