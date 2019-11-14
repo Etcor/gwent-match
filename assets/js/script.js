@@ -80,10 +80,10 @@ function handleCardClick(event){
     return;
   }
   //checks if any cards have been clicked
-  if(firstCardClicked === null){
+  if(!firstCardClicked){
     firstCardClicked = currentTarget;
     currentTarget.addClass('clicked');
-  } else if(secondCardClicked === null){
+  } else if(!secondCardClicked){
     secondCardClicked = currentTarget;
     currentTarget.addClass('clicked');
   }
@@ -156,15 +156,24 @@ function buildCardGame(){
 function randomizeCards(){
   //array holding classes for the cards
   var classArray = [
-    'cssLogo',
-    'dockerLogo',
-    'jsLogo',
-    'nodeLogo',
-    'reactLogo',
-    'gitHubLogo',
-    'htmlLogo',
-    'phpLogo',
-    'mySqlLogo',
+    // 'cssLogo',
+    // 'dockerLogo',
+    // 'jsLogo',
+    // 'nodeLogo',
+    // 'reactLogo',
+    // 'gitHubLogo',
+    // 'htmlLogo',
+    // 'phpLogo',
+    // 'mySqlLogo',
+    'elemental',
+    'geralt',
+    'knightDragon',
+    'troll',
+    'gaunterODimm',
+    'redanianKnight',
+    'emhyr',
+    'radovid',
+    'golem'
   ];
   //doubles the array so that matching cards is possible
   var classArrayDoubled = classArray.concat(classArray);
