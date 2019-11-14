@@ -55,6 +55,7 @@ main{
   justify-content: space-around;
   height: 100%;
   margin: 2% 0%;
+  perspective: 1000px;
 }
 .card{
   position: relative;
@@ -62,6 +63,9 @@ main{
   height: 100%;
   width: 100%;
   margin: 0% 2%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  background-image: url("../images/lfz-card.jpg");
 }
 .front, .back, .cssLogo, .dockerLogo, .jsLogo, .nodeLogo, .reactLogo, .gitHubLogo, .htmlLogo, .phpLogo, .mySqlLogo{
   position: absolute;
@@ -69,13 +73,19 @@ main{
   width: 100%;
   background-size: cover;
   background-position: center;
+  backface-visibility: hidden;
 }
 .back{
   background-image: url("../images/lfz-card.jpg");
+  /* display: none; */
 }
-/* .front{
-  background-image: url("../images/js-logo.png");
-} */
+.front{
+  transform: rotateY(-180deg);
+  /* backface-visibility: hidden; */
+}
+.clicked{
+  transform: rotateY(180deg);
+}
 .cssLogo{
   background-image: url("../images/css-logo.png");
 }
@@ -135,5 +145,8 @@ main{
   text-transform: uppercase;
 }
 .hidden{
+  /* display: none; */
+}
+.hiddenModal{
   display: none;
 }
