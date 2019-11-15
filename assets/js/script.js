@@ -88,8 +88,8 @@ function handleCardClick(event){
     currentTarget.addClass('clicked');
   }
    //conditional checking if both cards have been clicked
-  if(firstCardClicked !== null && secondCardClicked !== null){
-    attempts += 1;//on any match attempt, increments attemps var
+  if(firstCardClicked && secondCardClicked){
+    attempts++;//on any match attempt, increments attemps var
     var firstCardImage = firstCardClicked.find('.front').css('background-image');//finds bg img for comp.
     var secondCardImage = secondCardClicked.find('.front').css('background-image');//finds bg img for comp.
     //checks if they are the same img
@@ -109,13 +109,13 @@ function handleCardClick(event){
           secondCardClicked = null;
           //starts card click handler again
           cardContainer.on('click', '.card', handleCardClick);
-          }, 1500);
+          }, 750);
       }else{ //resets clicked card variables on success or failure
         //resets clickedCard vars
         firstCardClicked = null;
         secondCardClicked = null;
         //on successful match, increments match var
-        matches += 1;
+        matches++;
         }
     //updates Stats Div
     displayStats();

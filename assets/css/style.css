@@ -6,17 +6,20 @@ body{
   display: flex;
   height: 100vh;
   width: 100vw;
+  background-position: center;
+  background-size: contain;
+  /* background-image: url("../images/Customized_IMG/gameboardFUCK.png"); */
   background-color: darkslategray;
 }
 #containerOfAllTheThings{
   height: 90vh;
   width: 70vw;
   margin: auto;
-  background-color: #2a2a2a;
+  /* background-color: #2a2a2a; */
 }
 header{
   display: flex;
-  background-color: seashell;
+  /* background-color: seashell; */
   height: 15%;
   justify-content: center;
   text-align: center;
@@ -30,7 +33,7 @@ header{
   height: 85%;
 }
 aside{
-  background-color: orangered;
+  /* background-color: orangered; */
   width: 20%;
 }
 .stats{
@@ -46,7 +49,7 @@ aside{
 .stats > *{
   display: inline-block;
   margin: 0;
-  background-color: firebrick;
+  /* background-color: firebrick; */
   height: 10%;
   width: 100%;
   border-radius: 5px;
@@ -84,10 +87,12 @@ main{
   background-position: center;
   backface-visibility: hidden;
   background-repeat: no-repeat;
+
 }
 .back{
   /* background-color: dodgerblue; */
-  background-image: url("../images/Customized_IMG/skellige_card_back.png");
+  background-image: url("../images/Customized_IMG/monsters_card_back.png");
+
   border-radius: 5px;
 }
 .front{
@@ -96,33 +101,7 @@ main{
 .clicked{
   transform: rotateY(180deg);
 }
-.cssLogo{
-  background-image: url("../images/css-logo.png");
-}
-.dockerLogo{
-  background-image: url("../images/docker-logo.jpg");
-}
-.gitHubLogo{
-  background-image: url("../images/gitHub-logo.png");
-}
-.htmlLogo{
-  background-image: url("../images/html-logo.png");
-}
-.jsLogo{
-  background-image: url("../images/js-logo.png");
-}
-.phpLogo{
-  background-image: url("../images/php-logo.jpeg");
-}
-.mySqlLogo{
-  background-image: url("../images/mysql-logo.jpg");
-}
-.nodeLogo{
-  background-image: url("../images/node-logo.png");
-}
-.reactLogo{
-  background-image: url("../images/react-logo.png");
-}
+
 #modalResetStats{
   background-color: coral;
   position: fixed;
@@ -154,9 +133,63 @@ main{
   border-radius: 10px;
   text-transform: uppercase;
 }
+.elemental{
+  background-image: url("../images/Customized_IMG/elemental.png");
+}
+.emhyr{
+  background-image: url("../images/Customized_IMG/emhyr.png");
+}
+.gaunterODimm{
+  background-image: url("../images/Customized_IMG/Gaunter_O_Dim.png");
+}
+.geralt{
+  background-image: url("../images/Customized_IMG/geralt.png");
+}
+.golem{
+  background-image: url("../images/Customized_IMG/golem.png");
+}
+.knightDragon{
+  background-image: url("../images/Customized_IMG/knight_dragon.png");
+}
+.radovid{
+  background-image: url("../images/Customized_IMG/radovid.png");
+}
+.redanianKnight{
+  background-image: url("../images/Customized_IMG/redanian_knight.png");
+}
+.troll{
+  background-image: url("../images/Customized_IMG/troll.png");
+}
 .hidden{
   /* display: none; */
 }
 .hiddenModal{
   display: none;
 }
+/* .cssLogo{
+  background-image: url("../images/css-logo.png");
+}
+.dockerLogo{
+  background-image: url("../images/docker-logo.jpg");
+}
+.gitHubLogo{
+  background-image: url("../images/gitHub-logo.png");
+}
+.htmlLogo{
+  background-image: url("../images/html-logo.png");
+}
+.jsLogo{
+  background-image: url("../images/js-logo.png");
+}
+.phpLogo{
+  background-image: url("../images/php-logo.jpeg");
+}
+.mySqlLogo{
+  background-image: url("../images/mysql-logo.jpg");
+}
+.nodeLogo{
+  background-image: url("../images/node-logo.png");
+}
+.reactLogo{
+  background-image: url("../images/react-logo.png");
+} */
