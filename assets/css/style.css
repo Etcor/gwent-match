@@ -7,9 +7,10 @@ body{
   height: 100vh;
   width: 100vw;
   background-position: center;
-  background-size: contain;
-  /* background-image: url("../images/Customized_IMG/gameboardFUCK.png"); */
+  background-size: cover;
+  background-image: url("../images/Customized_IMG/Gwent-BirdsEye.jpg");
   background-color: darkslategray;
+  color: white;
 }
 #containerOfAllTheThings{
   height: 90vh;
