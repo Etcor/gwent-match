@@ -8,7 +8,6 @@ body{
   width: 100vw;
   background-position: center;
   background-size: cover;
-  background-image: url("../images/Customized_IMG/Gwent-BirdsEye.jpg");
   background-color: darkslategray;
   color: black;
 }
@@ -29,15 +28,22 @@ header{
   text-align: center;
 }
 .title{
-  font-size: 5vmin;
+  font-size: 4vmin;
   margin: auto;
+  margin-top: 4%;
+  text-transform: uppercase;
+  font-family: 'Caesar Dressing';
+
+}
+.title > p{
+  font-size: 2vmin;
+  margin: 0;
 }
 #contentContainer{
   display: flex;
   height: 85%;
 }
 aside{
-  /* background-color: orangered; */
   width: 30%;
   background-image: url("../images/Customized_IMG/StatsBG.png");
   background-position: center;
@@ -57,7 +63,6 @@ aside{
 .stats > *{
   display: inline-block;
   margin: 0;
-  /* background-color: firebrick; */
   height: 10%;
   width: 100%;
   border-radius: 5px;
@@ -87,7 +92,7 @@ main{
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
-.front, .back, .cssLogo, .dockerLogo, .jsLogo, .nodeLogo, .reactLogo, .gitHubLogo, .htmlLogo, .phpLogo, .mySqlLogo{
+.front, .back{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -95,12 +100,8 @@ main{
   background-position: center;
   backface-visibility: hidden;
   background-repeat: no-repeat;
-
 }
 .back{
-  /* background-color: dodgerblue; */
-  background-image: url("../images/Customized_IMG/monsters_card_back.png");
-
   border-radius: 5px;
 }
 .front{
@@ -109,37 +110,40 @@ main{
 .clicked{
   transform: rotateY(180deg);
 }
-
 #modalResetStats{
-  background-color: coral;
+  background-image: url("../images/Customized_IMG/Modal.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   position: fixed;
   z-index: 1;
   width: 30%;
-  height: 40%;
-  top: 50%;
+  height: 75%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
   margin: auto;
   text-align: center;
   border-radius: 10px;
+  font-family: 'Bilbo Swash Caps';
+  font-size: 4vmin;
 }
 #victoryMessage{
   position: absolute;
-  width: 100%;
-  top: 15%;
+  width: 71%;
+  top: 34%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 #resetStats{
-  background-color: crimson;
   position: absolute;
-  top: 50%;
+  top: 69%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 2vmin;
-  border-radius: 10px;
-  text-transform: uppercase;
+}
+#resetStats:hover{
+  cursor: pointer;
 }
 .elemental{
   background-image: url("../images/Customized_IMG/elemental.png");
@@ -168,36 +172,45 @@ main{
 .troll{
   background-image: url("../images/Customized_IMG/troll.png");
 }
+.inn{
+  background-image: url("../images/Customized_IMG/Gwent-BirdsEye.jpg");
+}
+.startingBack{
+  background-image: url("../images/Customized_IMG/basic_card_back.png");
+}
+.northernKingdoms{
+  background-image: url("../images/Customized_IMG/nk.jpg");
+}
+.northernBack{
+  background-image: url("../images/Customized_IMG/northern_kingdoms_card_back.png");
+}
+.forest{
+  background-image: url("../images/Customized_IMG/The-Witcher-3-forest-sun-rays_2880x1800.jpg");
+}
+.forestBack{
+  background-image: url("../images/Customized_IMG/scoiatel_card_back.png");
+}
+.nilfgaard{
+  background-image: url("../images/Customized_IMG/nilfgard.png");
+}
+.nilfgaardBack{
+  background-image: url("../images/Customized_IMG/nilfgard_card_back.png");
+}
+.skellige{
+  background-image: url("../images/Customized_IMG/Skellige.jpg");
+}
+.skelligeBack{
+  background-image: url("../images/Customized_IMG/skellige_card_back.png");
+}
+.monsters{
+  background-image: url("../images/Customized_IMG/90360c794537a8df67702a41af36e6e9.jpg");
+}
+.monstersBack{
+  background-image: url("../images/Customized_IMG/monsters_card_back.png");
+}
 .hidden{
   /* display: none; */
 }
 .hiddenModal{
   display: none;
 }
-/* .cssLogo{
-  background-image: url("../images/css-logo.png");
-}
-.dockerLogo{
-  background-image: url("../images/docker-logo.jpg");
-}
-.gitHubLogo{
-  background-image: url("../images/gitHub-logo.png");
-}
-.htmlLogo{
-  background-image: url("../images/html-logo.png");
-}
-.jsLogo{
-  background-image: url("../images/js-logo.png");
-}
-.phpLogo{
-  background-image: url("../images/php-logo.jpeg");
-}
-.mySqlLogo{
-  background-image: url("../images/mysql-logo.jpg");
-}
-.nodeLogo{
-  background-image: url("../images/node-logo.png");
-}
-.reactLogo{
-  background-image: url("../images/react-logo.png");
-} */

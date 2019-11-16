@@ -13,6 +13,16 @@ var attempts = null;
 //number of cards / 2
 var maxMatches = 1;
 
+var backgroundClass = [
+  {location:'inn', cardBack: 'startingBack'},
+  {location:'northernKingdoms', cardBack: 'northernBack'},
+  {location:'forest', cardBack: 'forestBack'},
+  {location:'nilfgaard', cardBack: 'nilfgaardBack'},
+  {location:'skellige', cardBack: 'skelligeBack'},
+  {location:'monsters', cardBack: 'monstersBack'}];
+
+
+
 function initializeApp(){
   //builds the cards dynamically
   buildCardGame();
@@ -128,6 +138,7 @@ function handleCardClick(event){
 
 //Uses DOM Creation to build cards that have randomized faces and locations
 function buildCardGame(){
+  $('body').addClass(backgroundClass[gamesPlayed].location);
   //sets number of cards to make -- rows*cards
   var cardBoard = {rows: 3, cards: 6};
   var cardGame = $('#container');
@@ -142,7 +153,7 @@ function buildCardGame(){
       var randomClassFront = randomClasses.pop();
       //sets the popped string as a class for a new card front
       var newCardFront = $('<div>').addClass('front').addClass(randomClassFront);
-      var newCardBack = $('<div>').addClass('back')
+      var newCardBack = $('<div>').addClass('back').addClass(backgroundClass[gamesPlayed].cardBack);
       //appends card front and back to container element 'card'
       newCardDiv.append(newCardFront, newCardBack);
       //appends card element to row
