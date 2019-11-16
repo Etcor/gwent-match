@@ -13,15 +13,15 @@ var attempts = null;
 //number of cards / 2
 var maxMatches = 1;
 
+//holds class names for styling
 var backgroundClass = [
   {location:'inn', cardBack: 'startingBack'},
   {location:'northernKingdoms', cardBack: 'northernBack'},
   {location:'forest', cardBack: 'forestBack'},
   {location:'nilfgaard', cardBack: 'nilfgaardBack'},
   {location:'skellige', cardBack: 'skelligeBack'},
-  {location:'monsters', cardBack: 'monstersBack'}];
-
-
+  {location:'monsters', cardBack: 'monstersBack'}
+];
 
 function initializeApp(){
   //builds the cards dynamically
@@ -58,8 +58,9 @@ function handleModal() {
 //Used to update Stats Div
 function displayStats(){
   var accuracy = calculateAccuracy();
-  $('#gamesPlayedNumber').text(gamesPlayed);
-  $('#attemptsNumber').text(attempts);
+  //PH for future use
+  // $('#gamesPlayedNumber').text(gamesPlayed);
+  // $('#attemptsNumber').text(attempts);
   $('#accuracyNumber').text(accuracy + '%');
 }
 
@@ -67,6 +68,9 @@ function displayStats(){
 function resetStats(){
   //increments gamesPlayed when game is reset
   gamesPlayed++;
+  $('#gamesPlayedNumber').append('<li></li>');
+  //removes attempts tally when game is reset
+  $('#attemptsNumber').empty();
   matches = 0;
   attempts = 0;
   var cardContainer = $('#container');
@@ -77,6 +81,10 @@ function resetStats(){
   buildCardGame();
   //updates Stats Div
   displayStats();
+}
+
+function increaseTally() {
+  $('#attemptsNumber').append('<li></li>');
 }
 
 //Click handler for cards
@@ -99,6 +107,7 @@ function handleCardClick(event){
   }
    //conditional checking if both cards have been clicked
   if(firstCardClicked && secondCardClicked){
+    increaseTally();
     attempts++;//on any match attempt, increments attemps var
     var firstCardImage = firstCardClicked.find('.front').css('background-image');//finds bg img for comp.
     var secondCardImage = secondCardClicked.find('.front').css('background-image');//finds bg img for comp.
@@ -167,15 +176,6 @@ function buildCardGame(){
 function randomizeCards(){
   //array holding classes for the cards
   var classArray = [
-    // 'cssLogo',
-    // 'dockerLogo',
-    // 'jsLogo',
-    // 'nodeLogo',
-    // 'reactLogo',
-    // 'gitHubLogo',
-    // 'htmlLogo',
-    // 'phpLogo',
-    // 'mySqlLogo',
     'elemental',
     'geralt',
     'knightDragon',

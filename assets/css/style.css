@@ -59,14 +59,42 @@ aside{
   text-align: center;
   vertical-align: middle;
   line-height: 250%;
+  /* font-family: 'Bilbo Swash Caps'; */
+  font-family: 'Spirax';
+  font-size: 4vmin;
 }
-.stats > *{
-  display: inline-block;
+ol#gamesPlayedNumber {
+  display: flex;
+  height: 20px;
   margin: 0;
-  height: 10%;
-  width: 100%;
-  border-radius: 5px;
+  padding: 0;
+  justify-content: center;
+  text-align: center;
 }
+ol#attemptsNumber {
+  display: flex;
+  flex-wrap: wrap;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+li {
+  display: inline-block;
+  height: 20px;
+  border: 1px solid #000;
+  margin-right: 4px;
+}
+li:nth-child(5n) {
+  transform: rotate(300deg);
+  height: 30px;
+  position: relative;
+  left: -15px;
+  top: 5px;
+  margin-right: .5em;
+  margin-top: -10px;
+}
+
 main{
   width: 80%;
 }
@@ -207,9 +235,6 @@ main{
 }
 .monstersBack{
   background-image: url("../images/Customized_IMG/monsters_card_back.png");
-}
-.hidden{
-  /* display: none; */
 }
 .hiddenModal{
   display: none;
