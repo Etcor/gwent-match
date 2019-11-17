@@ -7,11 +7,13 @@ var secondCardClicked = null;
 //increment after every successful match
 var matches = null;
 //increment after all cards have been matched
-var gamesPlayed = 0;
+var gamesPlayed = null;
+//Used to reset game when I run out of board styles :)
+var gameState = 0;
 //increment after an attempted match
 var attempts = null;
 //number of cards / 2
-var maxMatches = 1;
+var maxMatches = 9;
 
 //holds class names for styling
 var backgroundClass = [
@@ -52,7 +54,35 @@ function calculateAccuracy(){
 //Shows Modal that contains victory message and button to reset game
 function handleModal() {
   var modalOnVictory = $('#modalResetStats');
+  var messageElement = $('#victoryMessage');
+  var resetElement = $('#resetStats');
   modalOnVictory.removeClass('hiddenModal');
+  //switch tracks gamestate var to change message on modal
+  switch(gameState){
+    case 0:
+      messageElement.text('Greetings! I bring a message. Your prowess in this game of memory has procured an invitation from the Duchess of Toussaint herself!');
+      resetElement.text('Begin Journey');
+      break;
+    case 1:
+      messageElement.text('On your way home from Toussaint, you come across a traveler in the forest looking to play a game of memory.');
+      resetElement.text('Continue Journey');
+      break;
+    case 2:
+      messageElement.text('Good Sir! Good Sir! Emperor Emhyr requests your presence, he wishes to see you play firsthand!');
+      break;
+    case 3:
+      messageElement.text('After entertaining the emperor, you sail home and somehow the game of memory finds you again aboard ship.');
+      break;
+    case 4:
+      messageElement.text('The Chieftain of Skellige has given you a quest to find and defeat the monster of memory, if you succeed you will be rewarded!');
+      break;
+    case 5:
+      messageElement.text('Congratulations! You have completed the game! You may continue to play however the story such as it is has already been told.');
+      resetElement.text('Start Over');
+      break;
+    default:
+      messageElement.text('Switch failed');
+  }
 }
 
 //Used to update Stats Div
@@ -66,15 +96,24 @@ function displayStats(){
 
 //Resets game and updates games played
 function resetStats(){
-  //increments gamesPlayed when game is reset
-  gamesPlayed++;
-  $('#gamesPlayedNumber').append('<li></li>');
-  //removes attempts tally when game is reset
-  $('#attemptsNumber').empty();
-  matches = 0;
-  attempts = 0;
   var cardContainer = $('#container');
   var modalElement = $('#modalResetStats');
+  var gamesPlayedNum = $('gamesPlayedNumber');
+  var attemptsNum = $('#attemptsNumber');
+  //increments gamesPlayed when game is reset
+  gamesPlayed++;
+  //Using this to reset game when I run out of BG's and Cards
+  if(gameState < 5){
+    gameState++;
+  }else{
+    gameState = 0;
+  }
+  //Add tally mark to track games played
+  gamesPlayedNum.append('<li></li>');
+  //removes attempts tally when game is reset
+  attemptsNum.empty();
+  matches = 0;
+  attempts = 0;
   modalElement.addClass('hiddenModal');
   cardContainer.empty();
   //rebuilds game when reset is pressed
@@ -147,7 +186,10 @@ function handleCardClick(event){
 
 //Uses DOM Creation to build cards that have randomized faces and locations
 function buildCardGame(){
-  $('body').addClass(backgroundClass[gamesPlayed].location);
+  var bodyElement = $('body');
+  bodyElement.removeClass();
+  //Adds styling to BG based on variable incrementation
+  bodyElement.addClass(backgroundClass[gameState].location);
   //sets number of cards to make -- rows*cards
   var cardBoard = {rows: 3, cards: 6};
   var cardGame = $('#container');
@@ -162,7 +204,7 @@ function buildCardGame(){
       var randomClassFront = randomClasses.pop();
       //sets the popped string as a class for a new card front
       var newCardFront = $('<div>').addClass('front').addClass(randomClassFront);
-      var newCardBack = $('<div>').addClass('back').addClass(backgroundClass[gamesPlayed].cardBack);
+      var newCardBack = $('<div>').addClass('back').addClass(backgroundClass[gameState].cardBack);
       //appends card front and back to container element 'card'
       newCardDiv.append(newCardFront, newCardBack);
       //appends card element to row
