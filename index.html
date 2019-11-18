@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Memory Match</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Caesar Dressing" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bilbo Swash Caps" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <div id="startingModal">
+    <div id="startingMessage">
+      <div id="startingMessageText">Come one! Come all! The White Orchard Inn is holding a tournament to test your skill at memorization!</div>
+      <div id="acceptQuest">Travel to the Inn</div>
+    </div>
+  </div>
+
+  <div id="containerOfAllTheThings">
+    <header>
+      <div class="title">Memory Match
+        <p>Gwent themed!</p>
+      </div>
+    </header>
+    <div id="modalResetStats" class="hiddenModal">
+      <div id="victoryMessage"></div>
+      <div id="resetStats"></div>
+    </div>
+    <div id="contentContainer">
+      <aside>
+        <div class="stats">
+          <div class="statsTitle">Ye 'Olde Stats</div>
+          <div id="gamesPlayed">Games Played
+            <ol id="gamesPlayedNumber"></ol>
+          </div>
+          <div id="attempts">Attempts
+            <ol id="attemptsNumber"></ol>
+          </div>
+          <div id="accuracy">Accuracy
+            <div id="accuracyNumber">0%</div>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <div id="container">
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
