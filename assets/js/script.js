@@ -26,6 +26,16 @@ var backgroundClass = [
 ];
 
 function initializeApp(){
+  //hides card game at start until modal is clicked
+  var elementContainer = $('#containerOfAllTheThings');
+  elementContainer.toggle();
+  //click handler to hide modal and show game
+  var startingModal = $('#startingModal');
+  var acceptQuest = $('#acceptQuest');
+  acceptQuest.on('click', function(){
+    startingModal.toggle();
+    elementContainer.toggle();
+  });
   //builds the cards dynamically
   buildCardGame();
   var cardContainer = $('#container');
@@ -51,6 +61,7 @@ function calculateAccuracy(){
   }
   return accuracyPercentage;
 }
+
 //Shows Modal that contains victory message and button to reset game
 function handleModal() {
   var modalOnVictory = $('#modalResetStats');
@@ -82,6 +93,7 @@ function handleModal() {
       break;
     default:
       messageElement.text('Switch failed');
+      break;
   }
 }
 
@@ -98,7 +110,7 @@ function displayStats(){
 function resetStats(){
   var cardContainer = $('#container');
   var modalElement = $('#modalResetStats');
-  var gamesPlayedNum = $('gamesPlayedNumber');
+  var gamesPlayedNum = $('#gamesPlayedNumber');
   var attemptsNum = $('#attemptsNumber');
   //increments gamesPlayed when game is reset
   gamesPlayed++;
@@ -130,8 +142,6 @@ function increaseTally() {
 function handleCardClick(event){
   //selects the card that is clicked
   var currentTarget = $(event.currentTarget);
-  //hides the back of the card, revealing the face
-  currentTarget.find('.back').addClass('hidden');
   //prevents user from continuously clicking on card
   if (currentTarget.hasClass('clicked')) {
     return;
@@ -157,9 +167,7 @@ function handleCardClick(event){
       cardContainer.off('click', '.card', handleCardClick);
         //timer to reset css on card if img doesnt match
         setTimeout(function () {
-          //unhides back of card and removes clicked class from cards that are mismatched
-          firstCardClicked.find('.back').removeClass('hidden');
-          secondCardClicked.find('.back').removeClass('hidden');
+          //removes clicked class from cards that are mismatched
           firstCardClicked.removeClass('clicked');
           secondCardClicked.removeClass('clicked');
           //resets clickedCard vars
@@ -167,7 +175,7 @@ function handleCardClick(event){
           secondCardClicked = null;
           //starts card click handler again
           cardContainer.on('click', '.card', handleCardClick);
-          }, 750);
+          }, 1000);
       }else{ //resets clicked card variables on success or failure
         //resets clickedCard vars
         firstCardClicked = null;
