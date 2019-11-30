@@ -1,74 +1,76 @@
+*{
+  box-sizing: border-box;
+}
+body, header, #contentContainer, .stats, ol#gamesPlayerNumber, ol#attemptsNumber, #container, .row{
+  display: flex;
+}
+#modalResetStats, #startingModal, #startingMessage, header, aside, .front, .back{
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body, #startingModal, aside{
+  background-size: cover;
+}
+li:nth-child(5n), #startingModal, #startingMessage, .card{
+  position: relative;
+}
+#modalResetStats, #startingMessage, header, .front, .back{
+  background-size: contain;
+}
+#resetStats, #victoryMessage, .front, .back, #acceptQuest, #startingMessageText{
+  position: absolute;
+}
+.front, .back, .card, #container, .stats, #startingModal, .row{
+  height: 100%;
+}
+#resetStats, #victoryMessage, #modalResetStats, #acceptQuest, #startingMessageText{
+  transform: translate(-50%, -50%);
+}
+#startingModal, header, .stats, ol#gamesPlayedNumber, ol#attemptsNumber, #modalResetStats{
+  text-align: center;
+}
 body{
   margin: 0;
-  display: flex;
   height: 100vh;
   width: 100vw;
-  background-position: center;
-  background-size: cover;
+  background-position: top;
   background-color: black;
   color: black;
 }
-
-/* starting modal */
-
 #startingModal{
-  position: relative;
   width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
   background-image: url("../images/Customized_IMG/Tw2_noticeboard.png");
-  text-align: center;
   font-family: 'Bilbo Swash Caps';
   font-size: 4vmin;
 }
 #startingMessage{
-  position: relative;
   left: 69%;
   top: 10%;
   height: 80%;
   width: 24%;
   background-image: url("../images/Customized_IMG/Modal.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
 #startingMessageText{
-  position: absolute;
   width: 69%;
   top: 34%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 #acceptQuest{
-  position: absolute;
   top: 69%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 #acceptQuest:hover{
   cursor: pointer;
 }
-
-/* Main content container */
-
 #containerOfAllTheThings{
   height: 90vh;
   width: 80vw;
   margin: 0 auto auto auto;
 }
-
-/* Header */
 header{
-  display: flex;
   height: 20%;
   background-image: url("../images/Customized_IMG/banner.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
   justify-content: center;
-  text-align: center;
 }
 .title{
   font-size: 4vmin;
@@ -76,56 +78,38 @@ header{
   margin-top: 4%;
   text-transform: uppercase;
   font-family: 'Caesar Dressing';
-
 }
 .title > p{
   font-size: 2vmin;
   margin: 0;
 }
-
-/* Flexbox for Stats and Game*/
-
 #contentContainer{
-  display: flex;
   height: 85%;
 }
 aside{
   width: 30%;
   background-image: url("../images/Customized_IMG/StatsBG.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 .stats{
   margin: 0% 10%;
-  height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  text-align: center;
   vertical-align: middle;
   line-height: 250%;
   font-family: 'Spirax';
   font-size: 4vmin;
 }
-
-/* Styling for tally marks */
-
 ol#gamesPlayedNumber {
-  display: flex;
   height: 20px;
   margin: 0;
   padding: 0;
   justify-content: center;
-  text-align: center;
 }
 ol#attemptsNumber {
-  display: flex;
   flex-wrap: wrap;
   height: 20px;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 li {
   display: inline-block;
@@ -136,48 +120,33 @@ li {
 li:nth-child(5n) {
   transform: rotate(300deg);
   height: 30px;
-  position: relative;
   left: -15px;
   top: 5px;
   margin-right: .5em;
   margin-top: -10px;
 }
-
-/*  Styling for card area */
-
 main{
   width: 80%;
 }
 #container{
-  display: flex;
   flex-direction: column;
-  height: 100%;
 }
 .row{
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 100%;
   margin: .5% 0%;
   perspective: 1000px;
 }
 .card{
-  position: relative;
   display: inline-block;
-  height: 100%;
   width: 10rem;
   margin: 0% .5%;
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 .front, .back{
-  position: absolute;
-  height: 100%;
   width: 100%;
-  background-size: contain;
-  background-position: center;
   backface-visibility: hidden;
-  background-repeat: no-repeat;
 }
 .back{
   border-radius: 5px;
@@ -188,47 +157,32 @@ main{
 .clicked{
   transform: rotateY(180deg);
 }
-
-/*  Styling for Modal on game completion */
-
 #modalResetStats{
   background-image: url("../images/Customized_IMG/Modal.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   position: fixed;
   z-index: 1;
   width: 30%;
   height: 75%;
   top: 58%;
   left: 50%;
-  transform: translate(-50%, -50%);
   flex-direction: column;
   margin: auto;
-  text-align: center;
   border-radius: 10px;
   font-family: 'Bilbo Swash Caps';
   font-size: 4vmin;
 }
 #victoryMessage{
-  position: absolute;
   width: 71%;
   top: 34%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 #resetStats{
-  position: absolute;
   top: 69%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
 #resetStats:hover{
   cursor: pointer;
 }
-
-/*  Holds the classes for BG and Cards */
-
 .elemental{
   background-image: url("../images/Customized_IMG/elemental.png");
 }
@@ -292,9 +246,6 @@ main{
 .monstersBack{
   background-image: url("../images/Customized_IMG/monsters_card_back.png");
 }
-
-/*  Hides Modal */
-
 .hiddenModal{
   display: none;
 }
