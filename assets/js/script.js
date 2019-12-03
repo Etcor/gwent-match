@@ -6,7 +6,7 @@ var matches = null;
 var gamesPlayed = null;
 var gameState = 0;
 var attempts = null;
-var maxMatches = 9;
+var maxMatches = 1;
 
 var backgroundClass = [
   {location:'inn', cardBack: 'starting-back'},

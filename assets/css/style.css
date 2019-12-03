@@ -1,7 +1,7 @@
 *{
   box-sizing: border-box;
 }
-body, header, #card-and-stats-container, .stats, ol#gamesPlayerNumber, ol#attempts-number, #game-container, .row{
+body, header, #card-and-stats-container, #stats, ol#gamesPlayerNumber, ol#attempts-number, #game-container, .row{
   display: flex;
 }
 #modal-reset-stats, #starting-modal, #starting-message, header, aside, .front, .back{
@@ -17,16 +17,16 @@ li:nth-child(5n), #starting-modal, #starting-message, .card{
 #modal-reset-stats, #starting-message, header, .front, .back{
   background-size: contain;
 }
-#resetStats, #victory-message, .front, .back, #accept-quest, #starting-message-text{
+#reset-stats, #victory-message, .front, .back, #accept-quest, #starting-message-text{
   position: absolute;
 }
-.front, .back, .card, #game-container, .stats, #starting-modal, .row{
+.front, .back, .card, #game-container, #stats, #starting-modal, .row{
   height: 100%;
 }
-#resetStats, #victory-message, #modal-reset-stats, #accept-quest, #starting-message-text{
+#reset-stats, #victory-message, #modal-reset-stats, #accept-quest, #starting-message-text{
   transform: translate(-50%, -50%);
 }
-#starting-modal, header, .stats, ol#games-played-number, ol#attempts-number, #modal-reset-stats{
+#starting-modal, header, #stats, ol#games-played-number, ol#attempts-number, #modal-reset-stats{
   text-align: center;
 }
 body{
@@ -72,14 +72,14 @@ header{
   background-image: url("../images/Customized_IMG/banner.png");
   justify-content: center;
 }
-.title{
+#title{
   font-size: 4vmin;
   margin: auto;
   margin-top: 4%;
   text-transform: uppercase;
   font-family: 'Caesar Dressing';
 }
-.title > p{
+#title > p{
   font-size: 2vmin;
   margin: 0;
 }
@@ -90,7 +90,7 @@ aside{
   width: 30%;
   background-image: url("../images/Customized_IMG/StatsBG.png");
 }
-.stats{
+#stats{
   margin: 0% 10%;
   flex-direction: column;
   justify-content: space-evenly;
