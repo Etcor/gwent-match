@@ -1,131 +1,115 @@
+*{
+  box-sizing: border-box;
+}
+body, header, #card-and-stats-container, #stats, ol#gamesPlayerNumber, ol#attempts-number, #game-container, .row{
+  display: flex;
+}
+#modal-reset-stats, #starting-modal, #starting-message, header, aside, .front, .back{
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body, #starting-modal, aside{
+  background-size: cover;
+}
+li:nth-child(5n), #starting-modal, #starting-message, .card{
+  position: relative;
+}
+#modal-reset-stats, #starting-message, header, .front, .back{
+  background-size: contain;
+}
+#reset-stats, #victory-message, .front, .back, #accept-quest, #starting-message-text{
+  position: absolute;
+}
+.front, .back, .card, #game-container, #stats, #starting-modal, .row{
+  height: 100%;
+}
+#reset-stats, #victory-message, #modal-reset-stats, #accept-quest, #starting-message-text{
+  transform: translate(-50%, -50%);
+}
+#starting-modal, header, #stats, ol#games-played-number, ol#attempts-number, #modal-reset-stats{
+  text-align: center;
+}
 body{
   margin: 0;
-  display: flex;
   height: 100vh;
   width: 100vw;
-  background-position: center;
-  background-size: cover;
+  background-position: top;
   background-color: black;
   color: black;
 }
-
-/* starting modal */
-
-#startingModal{
-  position: relative;
+#starting-modal{
   width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
   background-image: url("../images/Customized_IMG/Tw2_noticeboard.png");
-  text-align: center;
   font-family: 'Bilbo Swash Caps';
   font-size: 4vmin;
 }
-#startingMessage{
-  position: relative;
+#starting-message{
   left: 69%;
   top: 10%;
   height: 80%;
   width: 24%;
   background-image: url("../images/Customized_IMG/Modal.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
 }
-#startingMessageText{
-  position: absolute;
+#starting-message-text{
   width: 69%;
   top: 34%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
-#acceptQuest{
-  position: absolute;
+#accept-quest{
   top: 69%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
-#acceptQuest:hover{
+#accept-quest:hover{
   cursor: pointer;
 }
-
-/* Main content container */
-
-#containerOfAllTheThings{
+#content-container{
   height: 90vh;
   width: 80vw;
   margin: 0 auto auto auto;
 }
-
-/* Header */
 header{
-  display: flex;
   height: 20%;
   background-image: url("../images/Customized_IMG/banner.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
   justify-content: center;
-  text-align: center;
 }
-.title{
+#title{
   font-size: 4vmin;
   margin: auto;
   margin-top: 4%;
   text-transform: uppercase;
   font-family: 'Caesar Dressing';
-
 }
-.title > p{
+#title > p{
   font-size: 2vmin;
   margin: 0;
 }
-
-/* Flexbox for Stats and Game*/
-
-#contentContainer{
-  display: flex;
+#card-and-stats-container{
   height: 85%;
 }
 aside{
   width: 30%;
   background-image: url("../images/Customized_IMG/StatsBG.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
-.stats{
+#stats{
   margin: 0% 10%;
-  height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  text-align: center;
   vertical-align: middle;
   line-height: 250%;
   font-family: 'Spirax';
   font-size: 4vmin;
 }
-
-/* Styling for tally marks */
-
-ol#gamesPlayedNumber {
-  display: flex;
+ol#games-played-number {
   height: 20px;
   margin: 0;
   padding: 0;
   justify-content: center;
-  text-align: center;
 }
-ol#attemptsNumber {
-  display: flex;
+ol#attempts-number {
   flex-wrap: wrap;
   height: 20px;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 li {
   display: inline-block;
@@ -136,48 +120,33 @@ li {
 li:nth-child(5n) {
   transform: rotate(300deg);
   height: 30px;
-  position: relative;
   left: -15px;
   top: 5px;
   margin-right: .5em;
   margin-top: -10px;
 }
-
-/*  Styling for card area */
-
 main{
   width: 80%;
 }
-#container{
-  display: flex;
+#game-container{
   flex-direction: column;
-  height: 100%;
 }
 .row{
-  display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 100%;
   margin: .5% 0%;
   perspective: 1000px;
 }
 .card{
-  position: relative;
   display: inline-block;
-  height: 100%;
   width: 10rem;
   margin: 0% .5%;
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 .front, .back{
-  position: absolute;
-  height: 100%;
   width: 100%;
-  background-size: contain;
-  background-position: center;
   backface-visibility: hidden;
-  background-repeat: no-repeat;
 }
 .back{
   border-radius: 5px;
@@ -188,54 +157,39 @@ main{
 .clicked{
   transform: rotateY(180deg);
 }
-
-/*  Styling for Modal on game completion */
-
-#modalResetStats{
+#modal-reset-stats{
   background-image: url("../images/Customized_IMG/Modal.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
   position: fixed;
   z-index: 1;
   width: 30%;
   height: 75%;
   top: 58%;
   left: 50%;
-  transform: translate(-50%, -50%);
   flex-direction: column;
   margin: auto;
-  text-align: center;
   border-radius: 10px;
   font-family: 'Bilbo Swash Caps';
   font-size: 4vmin;
 }
-#victoryMessage{
-  position: absolute;
+#victory-message{
   width: 71%;
   top: 34%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
-#resetStats{
-  position: absolute;
+#reset-stats{
   top: 69%;
   left: 50%;
-  transform: translate(-50%, -50%);
 }
-#resetStats:hover{
+#reset-stats:hover{
   cursor: pointer;
 }
-
-/*  Holds the classes for BG and Cards */
-
 .elemental{
   background-image: url("../images/Customized_IMG/elemental.png");
 }
 .emhyr{
   background-image: url("../images/Customized_IMG/emhyr.png");
 }
-.gaunterODimm{
+.gaunter-o-dimm{
   background-image: url("../images/Customized_IMG/Gaunter_O_Dim.png");
 }
 .geralt{
@@ -244,13 +198,13 @@ main{
 .golem{
   background-image: url("../images/Customized_IMG/golem.png");
 }
-.knightDragon{
+.knight-dragon{
   background-image: url("../images/Customized_IMG/knight_dragon.png");
 }
 .radovid{
   background-image: url("../images/Customized_IMG/radovid.png");
 }
-.redanianKnight{
+.redanian-knight{
   background-image: url("../images/Customized_IMG/redanian_knight.png");
 }
 .troll{
@@ -259,42 +213,39 @@ main{
 .inn{
   background-image: url("../images/Customized_IMG/Gwent-BirdsEye.jpg");
 }
-.startingBack{
+.starting-back{
   background-image: url("../images/Customized_IMG/basic_card_back.png");
 }
-.northernKingdoms{
+.northern-kingdoms{
   background-image: url("../images/Customized_IMG/nk.jpg");
 }
-.northernBack{
+.northern-back{
   background-image: url("../images/Customized_IMG/northern_kingdoms_card_back.png");
 }
 .forest{
   background-image: url("../images/Customized_IMG/The-Witcher-3-forest-sun-rays_2880x1800.jpg");
 }
-.forestBack{
+.forest-back{
   background-image: url("../images/Customized_IMG/scoiatel_card_back.png");
 }
 .nilfgaard{
   background-image: url("../images/Customized_IMG/nilfgard.png");
 }
-.nilfgaardBack{
+.nilfgaard-back{
   background-image: url("../images/Customized_IMG/nilfgard_card_back.png");
 }
 .skellige{
   background-image: url("../images/Customized_IMG/Skellige.jpg");
 }
-.skelligeBack{
+.skellige-back{
   background-image: url("../images/Customized_IMG/skellige_card_back.png");
 }
 .monsters{
   background-image: url("../images/Customized_IMG/90360c794537a8df67702a41af36e6e9.jpg");
 }
-.monstersBack{
+.monsters-back{
   background-image: url("../images/Customized_IMG/monsters_card_back.png");
 }
-
-/*  Hides Modal */
-
-.hiddenModal{
+.hidden-modal{
   display: none;
 }
