@@ -9,27 +9,27 @@ var attempts = null;
 var maxMatches = 9;
 
 var backgroundClass = [
-  {location:'inn', cardBack: 'startingBack'},
-  {location:'northernKingdoms', cardBack: 'northernBack'},
-  {location:'forest', cardBack: 'forestBack'},
-  {location:'nilfgaard', cardBack: 'nilfgaardBack'},
-  {location:'skellige', cardBack: 'skelligeBack'},
-  {location:'monsters', cardBack: 'monstersBack'}
+  {location:'inn', cardBack: 'starting-back'},
+  {location:'northern-kingdoms', cardBack: 'northern-back'},
+  {location:'forest', cardBack: 'forest-back'},
+  {location:'nilfgaard', cardBack: 'nilfgaard-back'},
+  {location:'skellige', cardBack: 'skellige-back'},
+  {location:'monsters', cardBack: 'monsters-back'}
 ];
 
 function initializeApp(){
-  var elementContainer = $('#containerOfAllTheThings');
+  var elementContainer = $('#content-container');
   elementContainer.toggle();
-  var startingModal = $('#startingModal');
-  var acceptQuest = $('#acceptQuest');
+  var startingModal = $('#starting-modal');
+  var acceptQuest = $('#accept-quest');
   acceptQuest.on('click', function(){
     startingModal.toggle();
     elementContainer.toggle();
   });
   buildCardGame();
-  var cardContainer = $('#container');
+  var cardContainer = $('#card-and-stats-container');
   cardContainer.on('click', '.card', handleCardClick);
-  var resetGame = $('#resetStats');
+  var resetGame = $('#reset-stats');
   resetGame.on('click', resetStats);
 }
 
@@ -46,10 +46,10 @@ function calculateAccuracy(){
 }
 
 function handleModal() {
-  var modalOnVictory = $('#modalResetStats');
-  var messageElement = $('#victoryMessage');
-  var resetElement = $('#resetStats');
-  modalOnVictory.removeClass('hiddenModal');
+  var modalOnVictory = $('#modal-reset-stats');
+  var messageElement = $('#victory-message');
+  var resetElement = $('#reset-stats');
+  modalOnVictory.removeClass('hidden-modal');
   switch(gameState){
     case 0:
       messageElement.text('Greetings! I bring a message. Your prowess in this game of memory has procured an invitation from the Duchess of Toussaint herself!');
@@ -80,14 +80,14 @@ function handleModal() {
 
 function displayStats(){
   var accuracy = calculateAccuracy();
-  $('#accuracyNumber').text(accuracy + '%');
+  $('#accuracy-number').text(accuracy + '%');
 }
 
 function resetStats(){
-  var cardContainer = $('#container');
-  var modalElement = $('#modalResetStats');
-  var gamesPlayedNum = $('#gamesPlayedNumber');
-  var attemptsNum = $('#attemptsNumber');
+  var cardContainer = $('#card-and-stats-container');
+  var modalElement = $('#modal-reset-stats');
+  var gamesPlayedNum = $('#games-played-number');
+  var attemptsNum = $('#attempts-number');
   gamesPlayed++;
   if(gameState < 5){
     gameState++;
@@ -98,14 +98,14 @@ function resetStats(){
   attemptsNum.empty();
   matches = 0;
   attempts = 0;
-  modalElement.addClass('hiddenModal');
+  modalElement.addClass('hidden-modal');
   cardContainer.empty();
   buildCardGame();
   displayStats();
 }
 
 function increaseTally() {
-  $('#attemptsNumber').append('<li></li>');
+  $('#attempts-number').append('<li></li>');
 }
 
 function handleCardClick(event){
@@ -126,7 +126,7 @@ function handleCardClick(event){
     var firstCardImage = firstCardClicked.find('.front').css('background-image');
     var secondCardImage = secondCardClicked.find('.front').css('background-image');
     if(firstCardImage !== secondCardImage){
-      var cardContainer = $('#container');
+      var cardContainer = $('#card-and-stats-container');
       cardContainer.off('click', '.card', handleCardClick);
         setTimeout(function () {
           firstCardClicked.removeClass('clicked');
@@ -152,7 +152,7 @@ function buildCardGame(){
   bodyElement.removeClass();
   bodyElement.addClass(backgroundClass[gameState].location);
   var cardBoard = {rows: 3, cards: 6};
-  var cardGame = $('#container');
+  var cardGame = $('#game-container');
   var randomClasses = randomizeCards();
   for (var rows = 0; rows < cardBoard.rows; rows++) {
     var newCardRow = $('<div>').addClass('row');
@@ -172,10 +172,10 @@ function randomizeCards(){
   var classArray = [
     'elemental',
     'geralt',
-    'knightDragon',
+    'knight-dragon',
     'troll',
-    'gaunterODimm',
-    'redanianKnight',
+    'gaunter-o-dimm',
+    'redanian-knight',
     'emhyr',
     'radovid',
     'golem'
