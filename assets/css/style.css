@@ -20,7 +20,7 @@ li:nth-child(5n), #starting-modal, #starting-message, .card{
 #reset-stats, #victory-message, .front, .back, #accept-quest, #starting-message-text{
   position: absolute;
 }
-.front, .back, .card, #game-container, #stats, #starting-modal, .row{
+.front, .back, #game-container, #stats, #starting-modal, .row{
   height: 100%;
 }
 #reset-stats, #victory-message, #modal-reset-stats, #accept-quest, #starting-message-text{
@@ -39,16 +39,17 @@ body{
 }
 #starting-modal{
   width: 100%;
-  background-image: url("../images/Customized_IMG/Tw2_noticeboard.png");
+  background-image: url("../images/Customized_IMG/notice-board.png");
   font-family: 'Bilbo Swash Caps';
-  font-size: 4vmin;
+  font-size: 35px;
 }
 #starting-message{
   left: 69%;
-  top: 10%;
-  height: 80%;
-  width: 24%;
-  background-image: url("../images/Customized_IMG/Modal.png");
+  top: 15%;
+  height: 600px;
+  width: 400px;
+  background-image: url("../images/Customized_IMG/modal-img.png");
+  /* background-color: red; */
 }
 #starting-message-text{
   width: 69%;
@@ -71,24 +72,26 @@ header{
   height: 20%;
   background-image: url("../images/Customized_IMG/banner.png");
   justify-content: center;
+  align-items: center;
 }
 #title{
-  font-size: 4vmin;
-  margin: auto;
-  margin-top: 4%;
+  font-size: 40px;
+  /* margin: auto;
+  margin-top: 4%; */
   text-transform: uppercase;
   font-family: 'Caesar Dressing';
 }
 #title > p{
-  font-size: 2vmin;
+  font-size: 20px;
   margin: 0;
 }
 #card-and-stats-container{
-  height: 85%;
+  height: 700px;
+  width: 1400px;
 }
 aside{
   width: 30%;
-  background-image: url("../images/Customized_IMG/StatsBG.png");
+  background-image: url("../images/Customized_IMG/stats-bg.png");
 }
 #stats{
   margin: 0% 10%;
@@ -133,16 +136,20 @@ main{
 }
 .row{
   flex-direction: row;
-  justify-content: space-between;
-  margin: .5% 0%;
+  justify-content: space-evenly;
+  align-items: center;
+  /* margin: .5% 0%; */
   perspective: 1000px;
+  /* background-color: red; */
 }
 .card{
   display: inline-block;
-  width: 10rem;
+  height: 200px;
+  width: 160px;
   margin: 0% .5%;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+  /* background-color: white; */
 }
 .front, .back{
   width: 100%;
@@ -158,7 +165,7 @@ main{
   transform: rotateY(180deg);
 }
 #modal-reset-stats{
-  background-image: url("../images/Customized_IMG/Modal.png");
+  background-image: url("../images/Customized_IMG/modal-img.png");
   position: fixed;
   z-index: 1;
   width: 30%;
@@ -190,7 +197,7 @@ main{
   background-image: url("../images/Customized_IMG/emhyr.png");
 }
 .gaunter-o-dimm{
-  background-image: url("../images/Customized_IMG/Gaunter_O_Dim.png");
+  background-image: url("../images/Customized_IMG/gaunter-o-dimm.png");
 }
 .geralt{
   background-image: url("../images/Customized_IMG/geralt.png");
@@ -199,52 +206,52 @@ main{
   background-image: url("../images/Customized_IMG/golem.png");
 }
 .knight-dragon{
-  background-image: url("../images/Customized_IMG/knight_dragon.png");
+  background-image: url("../images/Customized_IMG/knight-dragon.png");
 }
 .radovid{
   background-image: url("../images/Customized_IMG/radovid.png");
 }
 .redanian-knight{
-  background-image: url("../images/Customized_IMG/redanian_knight.png");
+  background-image: url("../images/Customized_IMG/redanian-knight.png");
 }
 .troll{
   background-image: url("../images/Customized_IMG/troll.png");
 }
 .inn{
-  background-image: url("../images/Customized_IMG/Gwent-BirdsEye.jpg");
+  background-image: url("../images/Customized_IMG/inn-bg.jpg");
 }
 .starting-back{
-  background-image: url("../images/Customized_IMG/basic_card_back.png");
+  background-image: url("../images/Customized_IMG/starting-card-back.png");
 }
 .northern-kingdoms{
-  background-image: url("../images/Customized_IMG/nk.jpg");
+  background-image: url("../images/Customized_IMG/northern-kingdoms-bg.jpg");
 }
 .northern-back{
-  background-image: url("../images/Customized_IMG/northern_kingdoms_card_back.png");
+  background-image: url("../images/Customized_IMG/northern-kingdoms-card-back.png");
 }
 .forest{
-  background-image: url("../images/Customized_IMG/The-Witcher-3-forest-sun-rays_2880x1800.jpg");
+  background-image: url("../images/Customized_IMG/forest-bg.jpg");
 }
 .forest-back{
-  background-image: url("../images/Customized_IMG/scoiatel_card_back.png");
+  background-image: url("../images/Customized_IMG/scoiatel-card-back.png");
 }
 .nilfgaard{
   background-image: url("../images/Customized_IMG/nilfgard.png");
 }
 .nilfgaard-back{
-  background-image: url("../images/Customized_IMG/nilfgard_card_back.png");
+  background-image: url("../images/Customized_IMG/nilfgard-card-back.png");
 }
 .skellige{
-  background-image: url("../images/Customized_IMG/Skellige.jpg");
+  background-image: url("../images/Customized_IMG/skellige-bg.jpg");
 }
 .skellige-back{
-  background-image: url("../images/Customized_IMG/skellige_card_back.png");
+  background-image: url("../images/Customized_IMG/skellige-card-back.png");
 }
 .monsters{
-  background-image: url("../images/Customized_IMG/90360c794537a8df67702a41af36e6e9.jpg");
+  background-image: url("../images/Customized_IMG/monster-bg.jpg");
 }
 .monsters-back{
-  background-image: url("../images/Customized_IMG/monsters_card_back.png");
+  background-image: url("../images/Customized_IMG/monsters-card-back.png");
 }
 .hidden-modal{
   display: none;
