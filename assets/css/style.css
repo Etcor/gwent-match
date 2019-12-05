@@ -35,6 +35,8 @@ body{
   width: 100vw;
   background-position: top;
   background-color: black;
+  justify-content: center;
+  align-content: center;
   color: black;
 }
 #starting-modal{
@@ -64,9 +66,8 @@ body{
   cursor: pointer;
 }
 #content-container{
-  height: 90vh;
-  width: 80vw;
-  margin: 0 auto auto auto;
+  height: 700px;
+  width: 1600px;
 }
 header{
   height: 20%;
@@ -86,8 +87,8 @@ header{
   margin: 0;
 }
 #card-and-stats-container{
-  height: 700px;
-  width: 1400px;
+  height: 100%;
+  width: 100%;
 }
 aside{
   width: 30%;
@@ -146,7 +147,7 @@ main{
   display: inline-block;
   height: 200px;
   width: 160px;
-  margin: 0% .5%;
+  /* margin: 0% .5%; */
   transition: transform 0.5s;
   transform-style: preserve-3d;
   /* background-color: white; */
@@ -256,3 +257,103 @@ main{
 .hidden-modal{
   display: none;
 }
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) {
+
+  body{
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 400%;
+  }
+  #starting-modal{
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/Customized_IMG/notice-board.png");
+    background-size: 450%;
+    background-position-x: 90%;
+    font-family: 'Bilbo Swash Caps';
+    font-size: 100px;
+}
+
+  #starting-message{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 1400px;
+    width: 1100px;
+    background-image: url("../images/Customized_IMG/modal-img.png");
+  }
+
+  header{
+    height: 15%;
+  }
+
+  #content-container{
+    height: 100%;
+    width: 100%;
+  }
+
+  aside{
+    width: 100%;
+    height: 10%;
+  }
+
+  main{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #stats{
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    line-height: 150%;
+    margin: 0;
+  }
+
+  #stats-title{
+    display: none;
+  }
+
+  #card-and-stats-container{
+    height: 100%;
+    width: 100%;
+    align-content: center;
+    flex-direction: column;
+  }
+  #game-container{
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 84%;
+    width: 100%;
+  }
+
+  #modal-reset-stats{
+    width: 90%;
+    height: 60%;
+    font-size: 75px;
+  }
+
+  #victory-message{
+    width: 72%;
+  }
+
+  .row{
+    height: 100%;
+    flex-direction: column;
+    perspective: 7500px;
+  }
+
+  .card{
+    height: 235px;
+    width: 215px;
+  }
+
+  /* STYLES GO HERE */ }
