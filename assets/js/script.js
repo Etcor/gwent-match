@@ -76,6 +76,7 @@ function handleModal() {
 
 function displayStats(){
   var accuracy = calculateAccuracy();
+  $('#attempts-number').text(attempts);
   $('#accuracy-number').text(accuracy + '%');
 }
 
@@ -90,17 +91,13 @@ function resetStats(){
     gameState = 0;
   }
 
-  $('#games-played-number').append('<li></li>');
+  $('#games-played-number').text(gamesPlayed);
   $('#modal-reset-stats').addClass('hidden-modal');
-  $('#attempts-number').empty();
+  $('#attempts-number').text('0');
   $('#game-container').empty();
 
   buildCardGame();
   displayStats();
-}
-
-function increaseTally() {
-  $('#attempts-number').append('<li></li>');
 }
 
 function handleCardClick(event){
@@ -116,7 +113,6 @@ function handleCardClick(event){
     currentTarget.addClass('clicked');
   }
   if(firstCardClicked && secondCardClicked){
-    increaseTally();
     attempts++;
     var firstCardImage = firstCardClicked.find('.front').css('background-image');
     var secondCardImage = secondCardClicked.find('.front').css('background-image');

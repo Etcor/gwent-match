@@ -1,196 +1,199 @@
-*{
+/* Group Selectors */
+
+* {
   box-sizing: border-box;
+  margin: 0;
 }
-body, header, #card-and-stats-container, #stats, ol#gamesPlayerNumber, ol#attempts-number, #game-container, .row{
+body,
+header,
+#content-container,
+#modal-reset-stats,
+#card-and-stats-container,
+#stats,
+#title,
+#game-container,
+.row{
   display: flex;
 }
-#modal-reset-stats, #starting-modal, #starting-message, header, aside, .front, .back{
-  background-position: center;
+
+body,
+#starting-modal{
+  background-size: cover;
   background-repeat: no-repeat;
 }
-body, #starting-modal, aside{
-  background-size: cover;
+
+#starting-modal{
+  background-position: center;
 }
-li:nth-child(5n), #starting-modal, #starting-message, .card{
+
+#content-container,
+#card-and-stats-container,
+#game-container,
+#starting-modal,
+#starting-message,
+#stats > *,
+#stats,
+#title,
+.card,
+header{
   position: relative;
 }
-#modal-reset-stats, #starting-message, header, .front, .back{
-  background-size: contain;
+
+#content-container,
+#card-and-stats-container,
+#game-container,
+#starting-modal,
+.row,
+.front,
+.back,
+header{
+  width: 100%;
 }
-#reset-stats, #victory-message, .front, .back, #accept-quest, #starting-message-text{
+
+#card-and-stats-container,
+#game-container,
+#starting-modal,
+#stats,
+aside,
+.row,
+.front,
+.back,
+main{
+  height: 100%;
+}
+
+#content-container,
+#game-container,
+header,
+#stats{
+  flex-direction: column;
+}
+
+.front,
+.back,
+#starting-message > *{
   position: absolute;
 }
-.front, .back, #game-container, #stats, #starting-modal, .row{
-  height: 100%;
+
+.front,
+.back{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+
 }
-#reset-stats, #victory-message, #modal-reset-stats, #accept-quest, #starting-message-text{
-  transform: translate(-50%, -50%);
-}
-#starting-modal, header, #stats, ol#games-played-number, ol#attempts-number, #modal-reset-stats{
-  text-align: center;
-}
+
+/* Containers */
+
 body{
-  margin: 0;
   height: 100vh;
-  width: 100vw;
+  justify-content: center;
   background-position: top;
   background-color: black;
-  justify-content: center;
-  align-content: center;
-  color: black;
 }
-#starting-modal{
-  width: 100%;
-  background-image: url("../images/Customized_IMG/notice-board.png");
-  font-family: 'Bilbo Swash Caps';
-  font-size: 35px;
-}
-#starting-message{
-  left: 69%;
-  top: 15%;
-  height: 600px;
-  width: 400px;
-  background-image: url("../images/Customized_IMG/modal-img.png");
-  /* background-color: red; */
-}
-#starting-message-text{
-  width: 69%;
-  top: 34%;
-  left: 50%;
-}
-#accept-quest{
-  top: 69%;
-  left: 50%;
-}
-#accept-quest:hover{
-  cursor: pointer;
-}
-#content-container{
-  height: 700px;
-  width: 1600px;
-}
+
 header{
-  height: 20%;
-  background-image: url("../images/Customized_IMG/banner.png");
-  justify-content: center;
-  align-items: center;
+  height: 15%;
 }
-#title{
-  font-size: 40px;
-  /* margin: auto;
-  margin-top: 4%; */
-  text-transform: uppercase;
-  font-family: 'Caesar Dressing';
-}
-#title > p{
-  font-size: 20px;
-  margin: 0;
-}
-#card-and-stats-container{
-  height: 100%;
-  width: 100%;
-}
+
 aside{
-  width: 30%;
-  background-image: url("../images/Customized_IMG/stats-bg.png");
+  width: 20%;
 }
-#stats{
-  margin: 0% 10%;
-  flex-direction: column;
-  justify-content: space-evenly;
-  vertical-align: middle;
-  line-height: 250%;
-  font-family: 'Spirax';
-  font-size: 4vmin;
-}
-ol#games-played-number {
-  height: 20px;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
-}
-ol#attempts-number {
-  flex-wrap: wrap;
-  height: 20px;
-  margin: 0;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  height: 20px;
-  border: 1px solid #000;
-  margin-right: 4px;
-}
-li:nth-child(5n) {
-  transform: rotate(300deg);
-  height: 30px;
-  left: -15px;
-  top: 5px;
-  margin-right: .5em;
-  margin-top: -10px;
-}
+
 main{
   width: 80%;
 }
-#game-container{
-  flex-direction: column;
-}
+
 .row{
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  /* margin: .5% 0%; */
-  perspective: 1000px;
-  /* background-color: red; */
 }
+
+/* Modal Properties */
+
+#starting-modal{
+  background-size: cover;
+  background-image: url("/assets/images/Customized_IMG/notice-board.png");
+}
+
+#starting-message{
+  height: 76%;
+  width: 26%;
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/Customized_IMG/modal-img.png");
+}
+
+#starting-message > *{
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#starting-message-text{
+  top: 20%;
+}
+
+#accept-quest{
+  top: 70%;
+}
+
+#accept-quest:hover{
+  cursor: pointer;
+}
+
+/* Header Properties */
+
+header{
+  align-items: center;
+  color: white;
+}
+
+#title{
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+header > p{
+  margin: 0;
+}
+
+/* Stat Properties */
+
+#stats{
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  color: wheat;
+  font-size: 25px;
+}
+
+#stats > *{
+  height: 20%;
+  width: 80%;
+}
+
+/* Card Properties */
+
 .card{
+  height: 95%;
+  width: 13%;
   display: inline-block;
-  height: 200px;
-  width: 160px;
-  /* margin: 0% .5%; */
   transition: transform 0.5s;
   transform-style: preserve-3d;
-  /* background-color: white; */
 }
-.front, .back{
-  width: 100%;
-  backface-visibility: hidden;
-}
-.back{
-  border-radius: 5px;
-}
+
 .front{
   transform: rotateY(-180deg);
 }
+
 .clicked{
   transform: rotateY(180deg);
 }
-#modal-reset-stats{
-  background-image: url("../images/Customized_IMG/modal-img.png");
-  position: fixed;
-  z-index: 1;
-  width: 30%;
-  height: 75%;
-  top: 58%;
-  left: 50%;
-  flex-direction: column;
-  margin: auto;
-  border-radius: 10px;
-  font-family: 'Bilbo Swash Caps';
-  font-size: 4vmin;
-}
-#victory-message{
-  width: 71%;
-  top: 34%;
-  left: 50%;
-}
-#reset-stats{
-  top: 69%;
-  left: 50%;
-}
-#reset-stats:hover{
-  cursor: pointer;
-}
+
+/* Background Properties */
+
 .elemental{
   background-image: url("../images/Customized_IMG/elemental.png");
 }
@@ -254,106 +257,63 @@ main{
 .monsters-back{
   background-image: url("../images/Customized_IMG/monsters-card-back.png");
 }
+
 .hidden-modal{
   display: none;
 }
 
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 812px)
-and (-webkit-device-pixel-ratio : 3)
-and (orientation : portrait) {
 
-  body{
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 400%;
-  }
-  #starting-modal{
-    height: 100%;
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) and (orientation: portrait){
+  #game-container,
+  aside,
+  main{
     width: 100%;
-    background-image: url("../images/Customized_IMG/notice-board.png");
-    background-size: 450%;
-    background-position-x: 90%;
-    font-family: 'Bilbo Swash Caps';
-    font-size: 100px;
-}
+  }
 
-  #starting-message{
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 1400px;
-    width: 1100px;
-    background-image: url("../images/Customized_IMG/modal-img.png");
+  #starting-modal{
+    background-position: right;
   }
 
   header{
-    height: 15%;
-  }
-
-  #content-container{
-    height: 100%;
-    width: 100%;
-  }
-
-  aside{
-    width: 100%;
-    height: 10%;
-  }
-
-  main{
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  #stats{
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 45px;
-    line-height: 150%;
-    margin: 0;
-  }
-
-  #stats-title{
     display: none;
   }
 
+  .row,
   #card-and-stats-container{
-    height: 100%;
-    width: 100%;
-    align-content: center;
     flex-direction: column;
   }
-  #game-container{
+
+  #game-container,
+  #stats{
     flex-direction: row;
-    justify-content: space-evenly;
-    height: 84%;
-    width: 100%;
   }
 
-  #modal-reset-stats{
-    width: 90%;
-    height: 60%;
-    font-size: 75px;
-  }
-
-  #victory-message{
-    width: 72%;
-  }
-
-  .row{
-    height: 100%;
-    flex-direction: column;
-    perspective: 7500px;
+  aside{
+    height: 20%;
   }
 
   .card{
-    height: 235px;
-    width: 215px;
+    height: 15%;
+    width: 60%;
   }
 
-  /* STYLES GO HERE */ }
+  #stats{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 736px) and (orientation: landscape){
+  header{
+    display: none;
+  }
+
+  #game-container{
+    width: 100%;
+  }
+
+  #stats{
+    justify-content: space-evenly;
+    font-size: 20px;
+  }
+}

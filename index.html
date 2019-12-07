@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <title>Memory Match</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script src="./assets/js/script.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Caesar Dressing" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bilbo Swash Caps" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -18,9 +20,8 @@
   </div>
   <div id="content-container">
     <header>
-      <div id="title">Memory Match
-        <p>Gwent themed!</p>
-      </div>
+      <div id="title">Memory Match</div>
+      <p>Gwent themed!</p>
     </header>
     <div id="modal-reset-stats" class="hidden-modal">
       <div id="victory-message"></div>
@@ -29,12 +30,12 @@
     <div id="card-and-stats-container">
       <aside>
         <div id="stats">
-          <div id="stats-title">Ye 'Olde Stats</div>
+          <!-- <div id="stats-title">Ye 'Olde Stats</div> -->
           <div id="games-played">Games Played
-            <ol id="games-played-number"></ol>
+            <div id="games-played-number">0</div>
           </div>
           <div id="attempts">Attempts
-            <ol id="attempts-number"></ol>
+            <div id="attempts-number">0</div>
           </div>
           <div id="accuracy">Accuracy
             <div id="accuracy-number">0%</div>
