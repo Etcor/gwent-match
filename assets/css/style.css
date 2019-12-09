@@ -117,26 +117,26 @@ main{
 
 #starting-modal{
   background-size: cover;
-  background-image: url("/assets/images/Customized_IMG/notice-board.png");
+  background-image: url("../images/Customized_IMG/notice-board.png");
   z-index: 1;
 }
 
 #starting-message{
-  height: 490px;
-  width: 350px;
+  height: 750px;
+  width: 520px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("/assets/images/Customized_IMG/modal-img.png");
+  background-image: url("../images/Customized_IMG/modal-img.png");
 }
 
 #starting-message > *{
   left: 50%;
   width: 75%;
-  font-size: 24px;
+  font-size: 32px;
   transform: translate(-50%);
 }
 
@@ -145,6 +145,7 @@ main{
 }
 
 #accept-quest{
+  cursor: pointer;
   top: 70%;
 }
 
@@ -155,8 +156,8 @@ main{
 /* Victory Modal */
 
 #modal-reset-stats{
-  height: 490px;
-  width: 350px;
+  height: 750px;
+  width: 520px;
   left: 50%;
   top: 50%;
   position: fixed;
@@ -165,13 +166,13 @@ main{
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("/assets/images/Customized_IMG/modal-img.png");
+  background-image: url("../images/Customized_IMG/modal-img.png");
 }
 
 #modal-reset-stats > *{
   left: 50%;
   width: 75%;
-  font-size: 24px;
+  font-size: 32px;
   transform: translate(-50%);
 }
 
@@ -180,6 +181,7 @@ main{
 }
 
 #reset-stats{
+  cursor: pointer;
   top: 70%;
 }
 
