@@ -20,17 +20,13 @@ var backgroundClass = [
 function initializeApp(){
   var elementContainer = $('#content-container');
   elementContainer.toggle();
-  var startingModal = $('#starting-modal');
-  var acceptQuest = $('#accept-quest');
-  acceptQuest.on('click', function(){
-    startingModal.toggle();
+  $('#accept-quest').on('click', function(){
+    $('#starting-modal').addClass('hidden-modal');
     elementContainer.toggle();
   });
   buildCardGame();
-  var cardContainer = $('#card-and-stats-container');
-  cardContainer.on('click', '.card', handleCardClick);
-  var resetGame = $('#reset-stats');
-  resetGame.on('click', resetStats);
+  $('#card-and-stats-container').on('click', '.card', handleCardClick);
+  $('#reset-stats').on('click', resetStats);
 }
 
 function calculateAccuracy(){
@@ -46,10 +42,10 @@ function calculateAccuracy(){
 }
 
 function handleModal() {
-  var modalOnVictory = $('#modal-reset-stats');
   var messageElement = $('#victory-message');
   var resetElement = $('#reset-stats');
-  modalOnVictory.removeClass('hidden-modal');
+  $('#modal-reset-stats').removeClass('hidden-modal');
+
   switch(gameState){
     case 0:
       messageElement.text('Greetings! I bring a message. Your prowess in this game of memory has procured an invitation from the Duchess of Toussaint herself!');
@@ -80,32 +76,28 @@ function handleModal() {
 
 function displayStats(){
   var accuracy = calculateAccuracy();
+  $('#attempts-number').text(attempts);
   $('#accuracy-number').text(accuracy + '%');
 }
 
 function resetStats(){
-  var cardContainer = $('#card-and-stats-container');
-  var modalElement = $('#modal-reset-stats');
-  var gamesPlayedNum = $('#games-played-number');
-  var attemptsNum = $('#attempts-number');
   gamesPlayed++;
+  matches = 0;
+  attempts = 0;
+
   if(gameState < 5){
     gameState++;
   }else{
     gameState = 0;
   }
-  gamesPlayedNum.append('<li></li>');
-  attemptsNum.empty();
-  matches = 0;
-  attempts = 0;
-  modalElement.addClass('hidden-modal');
-  cardContainer.empty();
+
+  $('#games-played-number').text(gamesPlayed);
+  $('#modal-reset-stats').addClass('hidden-modal');
+  $('#attempts-number').text('0');
+  $('#game-container').empty();
+
   buildCardGame();
   displayStats();
-}
-
-function increaseTally() {
-  $('#attempts-number').append('<li></li>');
 }
 
 function handleCardClick(event){
@@ -121,7 +113,6 @@ function handleCardClick(event){
     currentTarget.addClass('clicked');
   }
   if(firstCardClicked && secondCardClicked){
-    increaseTally();
     attempts++;
     var firstCardImage = firstCardClicked.find('.front').css('background-image');
     var secondCardImage = secondCardClicked.find('.front').css('background-image');
@@ -152,7 +143,6 @@ function buildCardGame(){
   bodyElement.removeClass();
   bodyElement.addClass(backgroundClass[gameState].location);
   var cardBoard = {rows: 3, cards: 6};
-  var cardGame = $('#game-container');
   var randomClasses = randomizeCards();
   for (var rows = 0; rows < cardBoard.rows; rows++) {
     var newCardRow = $('<div>').addClass('row');
@@ -164,7 +154,7 @@ function buildCardGame(){
       newCardDiv.append(newCardFront, newCardBack);
       newCardRow.append(newCardDiv);
     }
-    cardGame.append(newCardRow);
+    $('#game-container').append(newCardRow);
   }
 }
 

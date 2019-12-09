@@ -1,0 +1,273 @@
+*{
+  box-sizing: border-box;
+}
+body, header, #card-and-stats-container, #stats, ol#gamesPlayerNumber, ol#attempts-number, #game-container, .row{
+  display: flex;
+}
+#modal-reset-stats, #starting-modal, #starting-message, header, aside, .front, .back{
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body, #starting-modal, aside{
+  background-size: cover;
+}
+li:nth-child(5n), #starting-modal, #starting-message, .card{
+  position: relative;
+}
+#modal-reset-stats, #starting-message, header, .front, .back{
+  background-size: contain;
+}
+#reset-stats, #victory-message, .front, .back, #accept-quest, #starting-message-text{
+  position: absolute;
+}
+.front, .back, #game-container, #stats, #starting-modal, .row{
+  height: 100%;
+}
+#reset-stats, #victory-message, #modal-reset-stats, #accept-quest, #starting-message-text{
+  transform: translate(-50%, -50%);
+}
+#starting-modal, header, #stats, ol#games-played-number, ol#attempts-number, #modal-reset-stats{
+  text-align: center;
+}
+body{
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  background-position: top;
+  background-color: black;
+  justify-content: center;
+  align-content: center;
+  color: black;
+}
+#starting-modal{
+  width: 100%;
+  background-image: url("../images/Customized_IMG/notice-board.png");
+  font-family: 'Bilbo Swash Caps';
+  font-size: 35px;
+}
+#starting-message{
+  left: 69%;
+  top: 15%;
+  height: 600px;
+  width: 400px;
+  background-image: url("../images/Customized_IMG/modal-img.png");
+}
+
+#starting-message-text{
+  width: 69%;
+  top: 34%;
+  left: 50%;
+}
+#accept-quest{
+  top: 69%;
+  left: 50%;
+}
+#accept-quest:hover{
+  cursor: pointer;
+}
+#content-container{
+  height: 700px;
+  width: 1600px;
+}
+header{
+  height: 20%;
+  background-image: url("../images/Customized_IMG/banner.png");
+  justify-content: center;
+  align-items: center;
+}
+#title{
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: 'Caesar Dressing';
+}
+#title > p{
+  font-size: 20px;
+  margin: 0;
+}
+#card-and-stats-container{
+  height: 100%;
+  width: 100%;
+}
+aside{
+  width: 30%;
+  background-image: url("../images/Customized_IMG/stats-bg.png");
+}
+#stats{
+  margin: 0% 10%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  vertical-align: middle;
+  line-height: 250%;
+  font-family: 'Spirax';
+  font-size: 4vmin;
+}
+ol#games-played-number {
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+ol#attempts-number {
+  flex-wrap: wrap;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  height: 20px;
+  border: 1px solid #000;
+  margin-right: 4px;
+}
+li:nth-child(5n) {
+  transform: rotate(300deg);
+  height: 30px;
+  left: -15px;
+  top: 5px;
+  margin-right: .5em;
+  margin-top: -10px;
+}
+main{
+  width: 80%;
+}
+#game-container{
+  flex-direction: column;
+}
+.row{
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  perspective: 1000px;
+}
+.card{
+  display: inline-block;
+  height: 200px;
+  width: 160px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.front, .back{
+  width: 100%;
+  backface-visibility: hidden;
+}
+.back{
+  border-radius: 5px;
+}
+.front{
+  transform: rotateY(-180deg);
+}
+.clicked{
+  transform: rotateY(180deg);
+}
+#modal-reset-stats{
+  background-image: url("../images/Customized_IMG/modal-img.png");
+  position: fixed;
+  z-index: 1;
+  width: 30%;
+  height: 75%;
+  top: 58%;
+  left: 50%;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 10px;
+  font-family: 'Bilbo Swash Caps';
+  font-size: 4vmin;
+}
+#victory-message{
+  width: 71%;
+  top: 34%;
+  left: 50%;
+}
+#reset-stats{
+  top: 69%;
+  left: 50%;
+}
+#reset-stats:hover{
+  cursor: pointer;
+}
+.elemental{
+  background-image: url("../images/Customized_IMG/elemental.png");
+}
+.emhyr{
+  background-image: url("../images/Customized_IMG/emhyr.png");
+}
+.gaunter-o-dimm{
+  background-image: url("../images/Customized_IMG/gaunter-o-dimm.png");
+}
+.geralt{
+  background-image: url("../images/Customized_IMG/geralt.png");
+}
+.golem{
+  background-image: url("../images/Customized_IMG/golem.png");
+}
+.knight-dragon{
+  background-image: url("../images/Customized_IMG/knight-dragon.png");
+}
+.radovid{
+  background-image: url("../images/Customized_IMG/radovid.png");
+}
+.redanian-knight{
+  background-image: url("../images/Customized_IMG/redanian-knight.png");
+}
+.troll{
+  background-image: url("../images/Customized_IMG/troll.png");
+}
+.inn{
+  background-image: url("../images/Customized_IMG/inn-bg.jpg");
+}
+.starting-back{
+  background-image: url("../images/Customized_IMG/starting-card-back.png");
+}
+.northern-kingdoms{
+  background-image: url("../images/Customized_IMG/northern-kingdoms-bg.jpg");
+}
+.northern-back{
+  background-image: url("../images/Customized_IMG/northern-kingdoms-card-back.png");
+}
+.forest{
+  background-image: url("../images/Customized_IMG/forest-bg.jpg");
+}
+.forest-back{
+  background-image: url("../images/Customized_IMG/scoiatel-card-back.png");
+}
+.nilfgaard{
+  background-image: url("../images/Customized_IMG/nilfgard.png");
+}
+.nilfgaard-back{
+  background-image: url("../images/Customized_IMG/nilfgard-card-back.png");
+}
+.skellige{
+  background-image: url("../images/Customized_IMG/skellige-bg.jpg");
+}
+.skellige-back{
+  background-image: url("../images/Customized_IMG/skellige-card-back.png");
+}
+.monsters{
+  background-image: url("../images/Customized_IMG/monster-bg.jpg");
+}
+.monsters-back{
+  background-image: url("../images/Customized_IMG/monsters-card-back.png");
+}
+.hidden-modal{
+  display: none;
+}
+
+/* mall devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  #game-container{
+    flex-direction: row;
+  }
+  .row{
+    flex-direction: column;
+  }
+  aside{
+    display: none;
+  }
+  header{
+    display: none;
+  }
+  #starting-message, #starting-modal{
+    display: none;
+  }
+
+}
