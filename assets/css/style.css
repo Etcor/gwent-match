@@ -3,6 +3,8 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  font-size: 36px;
 }
 body,
 header,
@@ -31,6 +33,7 @@ body,
 #game-container,
 #starting-modal,
 #starting-message,
+#modal-reset-stats,
 #stats > *,
 #stats,
 #title,
@@ -71,7 +74,8 @@ header,
 
 .front,
 .back,
-#starting-message > *{
+#starting-message > *,
+#modal-reset-stats > *{
   position: absolute;
 }
 
@@ -81,7 +85,6 @@ header,
   background-position: center;
   background-repeat: no-repeat;
   backface-visibility: hidden;
-
 }
 
 /* Containers */
@@ -110,16 +113,20 @@ main{
   align-items: center;
 }
 
-/* Modal Properties */
+/* Starting Modal */
 
 #starting-modal{
   background-size: cover;
   background-image: url("/assets/images/Customized_IMG/notice-board.png");
+  z-index: 1;
 }
 
 #starting-message{
-  height: 76%;
-  width: 26%;
+  height: 490px;
+  width: 350px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -128,6 +135,8 @@ main{
 
 #starting-message > *{
   left: 50%;
+  width: 75%;
+  font-size: 24px;
   transform: translate(-50%);
 }
 
@@ -143,6 +152,37 @@ main{
   cursor: pointer;
 }
 
+/* Victory Modal */
+
+#modal-reset-stats{
+  height: 490px;
+  width: 350px;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/Customized_IMG/modal-img.png");
+}
+
+#modal-reset-stats > *{
+  left: 50%;
+  width: 75%;
+  font-size: 24px;
+  transform: translate(-50%);
+}
+
+#victory-message{
+  top: 20%;
+}
+
+#reset-stats{
+  top: 70%;
+}
+
 /* Header Properties */
 
 header{
@@ -151,7 +191,7 @@ header{
 }
 
 #title{
-  font-size: 36px;
+  font-size: 64px;
   text-transform: uppercase;
 }
 
@@ -240,7 +280,7 @@ header > p{
   background-image: url("../images/Customized_IMG/scoiatel-card-back.png");
 }
 .nilfgaard{
-  background-image: url("../images/Customized_IMG/nilfgard.png");
+  background-image: url("../images/Customized_IMG/nilfgard-bg.png");
 }
 .nilfgaard-back{
   background-image: url("../images/Customized_IMG/nilfgard-card-back.png");
@@ -262,21 +302,90 @@ header > p{
   display: none;
 }
 
+#modal-reset-stats.hidden-modal{
+  display: none;
+}
 
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) and (orientation: portrait){
-  #game-container,
-  aside,
-  main{
-    width: 100%;
+/* Desktop Responsive Breakpoints */
+
+@media only screen and (max-width: 1292px) {
+  *{
+    font-size: 28px;
   }
 
-  #starting-modal{
-    background-position: right;
+  #title{
+    font-size: 60px;
   }
+}
+
+@media only screen and (max-width: 900px){
+  *{
+    font-size: 26px;
+  }
+
+  #title{
+    font-size: 55px;
+  }
+}
+
+@media only screen and (max-width: 720px){
+  *{
+    font-size: 24px;
+  }
+
+  #title{
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  *{
+    font-size: 22px;
+  }
+
+  .row,
+  #stats{
+    flex-direction: column;
+  }
+
+  #game-container{
+    flex-direction: row;
+  }
+
+  .card{
+    height: 15%;
+    width: 60%;
+  }
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3) {
 
   header{
     display: none;
+  }
+
+  #game-container{
+    width: 100%;
+  }
+}
+
+/* Portrait */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) {
+
+  aside,
+  main{
+    width: 100%;
   }
 
   .row,
@@ -301,19 +410,218 @@ header > p{
   #stats{
     font-size: 22px;
   }
+
+  #starting-message > *,
+  #modal-reset-stats > *{
+    font-size: 22px;
+    width: 65%;
+  }
 }
 
-@media (max-width: 736px) and (orientation: landscape){
-  header{
-    display: none;
-  }
 
-  #game-container{
-    width: 100%;
-  }
+/* Landscape */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) {
 
   #stats{
     justify-content: space-evenly;
-    font-size: 20px;
+    font-size: 24px;
+  }
+
+  #stats > *{
+    width: 100%;
+  }
+
+  #starting-message,
+  #modal-reset-stats{
+    height: 350px;
+    width: 240px;
+  }
+
+  #starting-message > *,
+  #modal-reset-stats > *{
+    font-size: 16px;
+    width: 75%;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3) {
+
+  *{
+    font-size: 22px;
+  }
+  header{
+    display: none;
+  }
+  #stats > *{
+    width: 100%;
+  }
+}
+
+/* Portrait */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) {
+
+  aside,
+  main{
+    width: 100%;
+  }
+
+  .row,
+  #card-and-stats-container{
+    flex-direction: column;
+  }
+
+  #game-container,
+  #stats{
+    flex-direction: row;
+  }
+
+  aside{
+    height: 20%;
+  }
+
+  .card{
+    height: 15%;
+    width: 60%;
+  }
+
+  #starting-message > *,
+  #modal-reset-stats > *{
+    width: 65%;
+  }
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 812px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: landscape) {
+
+  #starting-message,
+  #modal-reset-stats{
+    height: 350px;
+    width: 240px;
+  }
+
+  #starting-message > *,
+  #modal-reset-stats > *{
+    font-size: 16px;
+    width: 65%;
+  }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  *{
+    font-size: 30px;
+  }
+
+  #stats > *{
+    width: 100%;
+  }
+
+  #starting-message,
+  #modal-reset-stats{
+    height: 650px;
+    width: 460px;
+  }
+
+  #starting-message > *,
+  #modal-reset-stats > *{
+    font-size: 26px;
+    width: 65%;
+  }
+}
+
+/* Portrait */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  #title{
+    font-size: 64px;
+  }
+
+  aside{
+    width: 25%;
+  }
+
+  #game-container{
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .row{
+    flex-direction: column;
+  }
+
+  .card{
+    height: 15%;
+    width: 60%;
+  }
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  #title{
+    font-size: 72px;
+  }
+}
+
+/* ----------- iPad Pro 12.9" ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1366px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  *{
+    font-size: 38px;
+  }
+  #title{
+    font-size: 84px;
+  }
+  #stats > *{
+    width: 100%;
+  }
+
+  #starting-message,
+  #modal-reset-stats{
+    height: 750px;
+    width: 520px;
+  }
+
+  #starting-message > *,
+  #modal-reset-stats > *{
+    font-size: 32px;
+    width: 65%;
   }
 }

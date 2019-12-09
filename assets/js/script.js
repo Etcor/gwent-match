@@ -21,7 +21,7 @@ function initializeApp(){
   var elementContainer = $('#content-container');
   elementContainer.toggle();
   $('#accept-quest').on('click', function(){
-    $('#starting-modal').toggle();
+    $('#starting-modal').addClass('hidden-modal');
     elementContainer.toggle();
   });
   buildCardGame();
