@@ -1,5 +1,25 @@
 $(document).ready(initializeApp);
 
+let memoryMatch;
+
+function initGame() {
+  memoryMatch = new Memory_Match({
+    contentContainer: $('#content-container'),
+    cardAndStatsContainer: $('#card-and-stats-container'),
+    gameContainer: $('#game-container'),
+    startingModal: $('#starting-modal'),
+    acceptQuest: $('#accept-quest'),
+    resetStats: $('#reset-stats'),
+    victoryMessage: $('#victory-message'),
+    resetModal: $('#modal-reset-stats'),
+    statsObj: {
+      attempts: $('#attempts-number'),
+      accuracy: $('#accuracy-number'),
+      gamesPlayed: $('#games-played-number')
+    }
+  });
+}
+
 var firstCardClicked = null;
 var secondCardClicked = null;
 var matches = null;
