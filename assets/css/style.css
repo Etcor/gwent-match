@@ -302,11 +302,11 @@ header > p{
   background-image: url("../images/Customized_IMG/monsters-card-back.png");
 }
 
-.hidden-modal{
+.hide-modal{
   display: none;
 }
 
-#modal-reset-stats.hidden-modal{
+#modal-reset-stats.hide-modal{
   display: none;
 }
 

@@ -31,14 +31,21 @@ class Memory_Match {
       { location: 'monsters', cardBack: 'monsters-back' }
     ];
     this.addEventHandlers();
+    this.createGame();
   }
 
-  addEventHandlers = () => {
+  addEventHandlers() {
+    this.elementConfig.acceptQuest.on('click', this.startGame);
     this.elementConfig.cardAndStatsContainer.on('click' , '.card', this.handleCardClick);
     this.elementConfig.resetStats.on('click', this.resetStats);
   }
 
-  createGame = () => {
+  startGame() {
+    this.elementConfig.acceptQuest.addClass('hide-modal');
+    this.elementConfig.contentContainer.removeClass('hide-modal');
+  }
+
+  createGame() {
     let $bodyElement = $('body');
     $bodyElement.removeClass();
     $bodyElement.addClass(this.backgroundClass[this.gameState].location);
