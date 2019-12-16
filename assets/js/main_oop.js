@@ -30,41 +30,77 @@ class Memory_Match {
       { location: 'skellige', cardBack: 'skellige-back' },
       { location: 'monsters', cardBack: 'monsters-back' }
     ];
-    this.addEventHandlers();
+    this.startGame = this.startGame.bind(this);
     this.createGame();
   }
 
   addEventHandlers() {
-    this.elementConfig.acceptQuest.on('click', this.startGame);
-    this.elementConfig.cardAndStatsContainer.on('click' , '.card', this.handleCardClick);
-    this.elementConfig.resetStats.on('click', this.resetStats);
+    this.elementConfig.acceptQuest.addEventListener('click', this.startGame);
+    this.elementConfig.cardAndStatsContainer.addEventListener('click' , document.querySelector('.card'), this.handleCardClick);
+    this.elementConfig.resetStats.addEventListener('click', this.resetStats);
   }
 
   startGame() {
-    this.elementConfig.acceptQuest.addClass('hide-modal');
-    this.elementConfig.contentContainer.removeClass('hide-modal');
+    this.elementConfig.startingModal.classList.add('hide-modal');
+    this.elementConfig.contentContainer.classList.remove('hide-modal');
   }
 
   createGame() {
-    let $bodyElement = $('body');
-    $bodyElement.removeClass();
-    $bodyElement.addClass(this.backgroundClass[this.gameState].location);
+    let $bodyElement = document.querySelector('body');
+    $bodyElement.removeAttribute('class');
+    $bodyElement.classList.add(this.backgroundClass[this.gameState].location);
     let cardBoard = {
       rows: 3,
       cards: 6
     };
     let randomClasses = this.randomizeCards();
     for (let rows = 0; rows < cardBoard.rows; rows++) {
-      let $newRowOfCards = $('<div>').addClass('row');
+      let $newRowOfCards = document.createElement('div');
+      $newRowOfCards.classList.add('row');
       for (let cards = 0; cards < cardBoard.cards; cards++) {
         let randomCardImg = randomClasses.pop();
-        let $card = $('<div>').addClass('card');
-        let $newCardFront = $('<div>').addClass(`front ${randomCardImg}`);
-        let $newCardBack = $('<div>').addClass(`back ${this.backgroundClass[this.gameState].cardBack}`);
-        $card.append($newCardFront, $newCardBack);
-        $newRowOfCards.append(card);
+        let $card = document.createElement('div');
+        $card.classList.add('card');
+        let $newCardFront = document.createElement('div');
+        $newCardFront.classList.add("front", `${randomCardImg}`);
+        let $newCardBack = document.createElement('div');
+        $newCardBack.classList.add("back", `${this.backgroundClass[this.gameState].cardBack}`);
+        $card.appendChild($newCardFront);
+        $card.appendChild($newCardBack);
+        $newRowOfCards.appendChild($card);
       }
-      this.elementConfig.gameContainer.append($newRowOfCards);
+      this.elementConfig.gameContainer.appendChild($newRowOfCards);
     }
+  }
+
+  randomizeCards() {
+    const classArray = [
+      'elemental',
+      'geralt',
+      'knight-dragon',
+      'troll',
+      'gaunter-o-dimm',
+      'redanian-knight',
+      'emhyr',
+      'radovid',
+      'golem'
+    ];
+    let classArrayDoubled = classArray.concat(classArray);
+    return this.shuffle(classArrayDoubled);
+  }
+
+  shuffle(array) {
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
   }
 }
