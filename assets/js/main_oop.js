@@ -31,6 +31,7 @@ class Memory_Match {
       { location: 'monsters', cardBack: 'monsters-back' }
     ];
     this.startGame = this.startGame.bind(this);
+    this.handleModal = this.handleModal.bind(this);
     this.createGame();
   }
 
@@ -49,7 +50,7 @@ class Memory_Match {
     let $bodyElement = document.querySelector('body');
     $bodyElement.removeAttribute('class');
     $bodyElement.classList.add(this.backgroundClass[this.gameState].location);
-    let cardBoard = {
+    const cardBoard = {
       rows: 3,
       cards: 6
     };
@@ -71,6 +72,77 @@ class Memory_Match {
       }
       this.elementConfig.gameContainer.appendChild($newRowOfCards);
     }
+  }
+
+  handleModal() {
+    this.elementConfig.resetModal.classList.remove('hide-modal');
+
+    switch (this.gameState) {
+      case 0:
+        this.elementConfig.victoryMessage.innerHTML = 'Greetings! I bring a message. Your prowess in this game of memory has procured an invitation from the Duchess of Toussaint herself!';
+        this.elementConfig.resetStats.innerHTML = 'Begin Journey';
+        break;
+      case 1:
+        this.elementConfig.victoryMessage.innerHTML = 'On your way home from Toussaint, you come across a traveler in the forest looking to play a game of memory.';
+        this.elementConfig.resetStats.innerHTML = 'Continue Journey';
+        break;
+      case 2:
+        this.elementConfig.victoryMessage.innerHTML = 'Good Sir! Good Sir! Emperor Emhyr requests your presence, he wishes to see you play firsthand!';
+        break;
+      case 3:
+        this.elementConfig.victoryMessage.innerHTML = 'After entertaining the emperor, you sail home and somehow the game of memory finds you again aboard ship.';
+        break;
+      case 4:
+        this.elementConfig.victoryMessage.innerHTML = 'The Chieftain of Skellige has given you a quest to find and defeat the monster of memory, if you succeed you will be rewarded!';
+        break;
+      case 5:
+        this.elementConfig.victoryMessage.innerHTML = 'Congratulations! You have completed the game! You may continue to play however the story such as it is has already been told.';
+        this.elementConfig.resetStats.innerHTML = 'Start Over';
+        break;
+      default:
+        this.elementConfig.victoryMessage.innerHTML = 'Switch failed';
+        break;
+    }
+  }
+
+  calculateAccuracy() {
+    let accuracy = this.matches / this.attempts;
+    let accuracyPercentage = 0;
+
+    if (isNaN(accuracy)) {
+      accuracy = 0;
+    }
+    if (accuracy) {
+      accuracyPercentage = Math.round(accuracy * 100);
+    }
+
+    return accuracyPercentage;
+  }
+
+  displayStats() {
+    let accuracy = this.calculateAccuracy();
+    this.elementConfig.attempts.innerHTML = this.attempts;
+    this.elementConfig.accuracy.innerHTML = `${accuracy}%`;
+  }
+
+  resetStats() {
+    this.gamesPlayed++;
+    this.matches = 0;
+    this.attempts = 0;
+
+    if (this.gameState < 5) {
+      this.gameState++;
+    } else {
+      this.gameState = 0;
+    }
+
+    this.elementConfig.gamesPlayed.innerHTML = this.gamesPlayed;
+    this.elementConfig.resetModal.classList.add('hide-modal');
+    this.elementConfig.attempts.innerHTML = '0';
+    $('#game-container').empty();
+
+    buildCardGame();
+    displayStats();
   }
 
   randomizeCards() {

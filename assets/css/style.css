@@ -119,7 +119,7 @@ main{
 #starting-modal{
   background-size: cover;
   background-image: url("../images/Customized_IMG/notice-board.png");
-  z-index: 1;
+  z-index: 10000;
 }
 
 #starting-message{
@@ -306,7 +306,8 @@ header > p{
   display: none;
 }
 
-#modal-reset-stats.hide-modal{
+
+#modal-reset-stats.hide-modal, #content-container.hide-modal{
   display: none;
 }
 

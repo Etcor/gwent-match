@@ -1,4 +1,5 @@
 // $(document).ready(initGame);
+document.addEventListener('DOMContentLoaded', initGame, false);
 
 let memoryMatch;
 
