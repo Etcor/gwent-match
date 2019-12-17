@@ -306,6 +306,10 @@ header > p{
   display: none;
 }
 
+.loading {
+  pointer-events: none;
+}
+
 
 #modal-reset-stats.hide-modal, #content-container.hide-modal{
   display: none;

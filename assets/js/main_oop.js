@@ -21,7 +21,7 @@ class Memory_Match {
     this.gamesPlayed = null;
     this.gameState = 0;
     this.attempts = null;
-    this.maxMatches = 9;
+    this.maxMatches = 1;
     this.backgroundClass = [
       { location: 'inn', cardBack: 'starting-back' },
       { location: 'northern-kingdoms', cardBack: 'northern-back' },
@@ -30,14 +30,17 @@ class Memory_Match {
       { location: 'skellige', cardBack: 'skellige-back' },
       { location: 'monsters', cardBack: 'monsters-back' }
     ];
+
     this.startGame = this.startGame.bind(this);
+    this.createGame = this.createGame.bind(this);
+    this.resetStats = this.resetStats.bind(this);
     this.handleModal = this.handleModal.bind(this);
+    this.handleCardClick = this.handleCardClick.bind(this);
     this.createGame();
   }
 
   addEventHandlers() {
     this.elementConfig.acceptQuest.addEventListener('click', this.startGame);
-    this.elementConfig.cardAndStatsContainer.addEventListener('click' , document.querySelector('.card'), this.handleCardClick);
     this.elementConfig.resetStats.addEventListener('click', this.resetStats);
   }
 
@@ -68,9 +71,56 @@ class Memory_Match {
         $newCardBack.classList.add("back", `${this.backgroundClass[this.gameState].cardBack}`);
         $card.appendChild($newCardFront);
         $card.appendChild($newCardBack);
+        $card.addEventListener('click', this.handleCardClick);
         $newRowOfCards.appendChild($card);
       }
       this.elementConfig.gameContainer.appendChild($newRowOfCards);
+    }
+  }
+
+  handleCardClick(event) {
+    let currentTarget = event.currentTarget;
+    if (currentTarget.classList.contains('clicked')) {
+      return;
+    }
+    if (!this.firstCardClicked) {
+      this.firstCardClicked = currentTarget;
+      this.firstCardClicked.classList.add('clicked');
+    } else if (!this.secondCardClicked) {
+      this.secondCardClicked = currentTarget;
+      currentTarget.classList.add('clicked');
+    }
+    if (this.firstCardClicked && this.secondCardClicked) {
+      this.attempts++;
+      let firstCardFront = this.firstCardClicked.querySelector('.front');
+      let secondCardFront = this.secondCardClicked.querySelector('.front');
+      let firstCardImage = getComputedStyle(firstCardFront).backgroundImage;
+      let secondCardImage = getComputedStyle(secondCardFront).backgroundImage;
+      if (firstCardImage !== secondCardImage) {
+        let allCards = document.querySelectorAll('.card');
+        for(let i = 0; i < allCards.length; i++){
+          allCards[i].classList.add('loading');
+        }
+        setTimeout(() => {
+          this.firstCardClicked.classList.remove('clicked');
+          this.secondCardClicked.classList.remove('clicked');
+          this.firstCardClicked = null;
+          this.secondCardClicked = null;
+          for (let i = 0; i < allCards.length; i++) {
+            allCards[i].classList.remove('loading');
+          }
+        }, 1000);
+      } else if (firstCardImage === secondCardImage){
+        this.firstCardClicked = null;
+        this.secondCardClicked = null;
+        this.matches++;
+      }
+      this.displayStats();
+    }
+    if (this.matches === this.maxMatches) {
+      setTimeout(() => {
+        this.handleModal();
+      }, 1000);
     }
   }
 
@@ -121,8 +171,8 @@ class Memory_Match {
 
   displayStats() {
     let accuracy = this.calculateAccuracy();
-    this.elementConfig.attempts.innerHTML = this.attempts;
-    this.elementConfig.accuracy.innerHTML = `${accuracy}%`;
+    this.elementConfig.statsObj.attempts.innerHTML = this.attempts;
+    this.elementConfig.statsObj.accuracy.innerHTML = `${accuracy}%`;
   }
 
   resetStats() {
@@ -136,13 +186,14 @@ class Memory_Match {
       this.gameState = 0;
     }
 
-    this.elementConfig.gamesPlayed.innerHTML = this.gamesPlayed;
+    this.elementConfig.statsObj.gamesPlayed.innerHTML = this.gamesPlayed;
     this.elementConfig.resetModal.classList.add('hide-modal');
-    this.elementConfig.attempts.innerHTML = '0';
-    $('#game-container').empty();
-
-    buildCardGame();
-    displayStats();
+    this.elementConfig.statsObj.attempts.innerHTML = '0';
+    while(this.elementConfig.gameContainer.lastChild){
+      this.elementConfig.gameContainer.removeChild(this.elementConfig.gameContainer.lastChild);
+    }
+    this.createGame();
+    this.displayStats();
   }
 
   randomizeCards() {
