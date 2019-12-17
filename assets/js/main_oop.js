@@ -17,11 +17,11 @@ class Memory_Match {
     };
     this.firstCardClicked = null;
     this.secondCardClicked = null;
-    this.matches = null;
     this.gamesPlayed = null;
     this.gameState = 0;
+    this.matches = null;
     this.attempts = null;
-    this.maxMatches = 1;
+    this.maxMatches = 9;
     this.backgroundClass = [
       { location: 'inn', cardBack: 'starting-back' },
       { location: 'northern-kingdoms', cardBack: 'northern-back' },
@@ -36,6 +36,7 @@ class Memory_Match {
     this.resetStats = this.resetStats.bind(this);
     this.handleModal = this.handleModal.bind(this);
     this.handleCardClick = this.handleCardClick.bind(this);
+
     this.createGame();
   }
 
@@ -50,31 +51,34 @@ class Memory_Match {
   }
 
   createGame() {
-    let $bodyElement = document.querySelector('body');
-    $bodyElement.removeAttribute('class');
-    $bodyElement.classList.add(this.backgroundClass[this.gameState].location);
-    const cardBoard = {
+    let $body_element = document.querySelector('body');
+    $body_element.removeAttribute('class');
+    $body_element.classList.add(this.backgroundClass[this.gameState].location);
+    const gameSetup = {
       rows: 3,
       cards: 6
     };
     let randomClasses = this.randomizeCards();
-    for (let rows = 0; rows < cardBoard.rows; rows++) {
-      let $newRowOfCards = document.createElement('div');
-      $newRowOfCards.classList.add('row');
-      for (let cards = 0; cards < cardBoard.cards; cards++) {
+    for (let rows = 0; rows < gameSetup.rows; rows++) {
+      let $new_row = document.createElement('div');
+      $new_row.classList.add('row');
+      for (let cards = 0; cards < gameSetup.cards; cards++) {
         let randomCardImg = randomClasses.pop();
         let $card = document.createElement('div');
+        let $new_card_front = document.createElement('div');
+        let $new_card_back = document.createElement('div');
+
         $card.classList.add('card');
-        let $newCardFront = document.createElement('div');
-        $newCardFront.classList.add("front", `${randomCardImg}`);
-        let $newCardBack = document.createElement('div');
-        $newCardBack.classList.add("back", `${this.backgroundClass[this.gameState].cardBack}`);
-        $card.appendChild($newCardFront);
-        $card.appendChild($newCardBack);
+        $new_card_front.classList.add("front", `${randomCardImg}`);
+        $new_card_back.classList.add("back", `${this.backgroundClass[this.gameState].cardBack}`);
+
+        $card.appendChild($new_card_front);
+        $card.appendChild($new_card_back);
+        $new_row.appendChild($card);
+
         $card.addEventListener('click', this.handleCardClick);
-        $newRowOfCards.appendChild($card);
       }
-      this.elementConfig.gameContainer.appendChild($newRowOfCards);
+      this.elementConfig.gameContainer.appendChild($new_row);
     }
   }
 
@@ -192,6 +196,7 @@ class Memory_Match {
     while(this.elementConfig.gameContainer.lastChild){
       this.elementConfig.gameContainer.removeChild(this.elementConfig.gameContainer.lastChild);
     }
+
     this.createGame();
     this.displayStats();
   }
