@@ -118,7 +118,7 @@ main{
 
 #starting-modal{
   background-size: cover;
-  background-image: url("../images/Customized_IMG/notice-board.png");
+  background-image: url("../media/notice-board.png");
   z-index: 10000;
 }
 
@@ -131,7 +131,7 @@ main{
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("../images/Customized_IMG/modal-img.png");
+  background-image: url("../media/modal-img.png");
 }
 
 #starting-message > *{
@@ -162,7 +162,7 @@ main{
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("../images/Customized_IMG/modal-img.png");
+  background-image: url("../media/modal-img.png");
 }
 
 #modal-reset-stats > *{
@@ -234,67 +234,67 @@ header > p{
 /* Background Properties */
 
 .elemental{
-  background-image: url("../images/Customized_IMG/elemental.png");
+  background-image: url("../media/elemental.png");
 }
 .emhyr{
-  background-image: url("../images/Customized_IMG/emhyr.png");
+  background-image: url("../media/emhyr.png");
 }
 .gaunter-o-dimm{
-  background-image: url("../images/Customized_IMG/gaunter-o-dimm.png");
+  background-image: url("../media/gaunter-o-dimm.png");
 }
 .geralt{
-  background-image: url("../images/Customized_IMG/geralt.png");
+  background-image: url("../media/geralt.png");
 }
 .golem{
-  background-image: url("../images/Customized_IMG/golem.png");
+  background-image: url("../media/golem.png");
 }
 .knight-dragon{
-  background-image: url("../images/Customized_IMG/knight-dragon.png");
+  background-image: url("../media/knight-dragon.png");
 }
 .radovid{
-  background-image: url("../images/Customized_IMG/radovid.png");
+  background-image: url("../media/radovid.png");
 }
 .redanian-knight{
-  background-image: url("../images/Customized_IMG/redanian-knight.png");
+  background-image: url("../media/redanian-knight.png");
 }
 .troll{
-  background-image: url("../images/Customized_IMG/troll.png");
+  background-image: url("../media/troll.png");
 }
 .inn{
-  background-image: url("../images/Customized_IMG/inn-bg.jpg");
+  background-image: url("../media/inn-bg.jpg");
 }
 .starting-back{
-  background-image: url("../images/Customized_IMG/starting-card-back.png");
+  background-image: url("../media/starting-card-back.png");
 }
 .northern-kingdoms{
-  background-image: url("../images/Customized_IMG/northern-kingdoms-bg.jpg");
+  background-image: url("../media/northern-kingdoms-bg.jpg");
 }
 .northern-back{
-  background-image: url("../images/Customized_IMG/northern-kingdoms-card-back.png");
+  background-image: url("../media/northern-kingdoms-card-back.png");
 }
 .forest{
-  background-image: url("../images/Customized_IMG/forest-bg.jpg");
+  background-image: url("../media/forest-bg.jpg");
 }
 .forest-back{
-  background-image: url("../images/Customized_IMG/scoiatel-card-back.png");
+  background-image: url("../media/scoiatel-card-back.png");
 }
 .nilfgaard{
-  background-image: url("../images/Customized_IMG/nilfgard-bg.png");
+  background-image: url("../media/nilfgard-bg.png");
 }
 .nilfgaard-back{
-  background-image: url("../images/Customized_IMG/nilfgard-card-back.png");
+  background-image: url("../media/nilfgard-card-back.png");
 }
 .skellige{
-  background-image: url("../images/Customized_IMG/skellige-bg.jpg");
+  background-image: url("../media/skellige-bg.jpg");
 }
 .skellige-back{
-  background-image: url("../images/Customized_IMG/skellige-card-back.png");
+  background-image: url("../media/skellige-card-back.png");
 }
 .monsters{
-  background-image: url("../images/Customized_IMG/monster-bg.jpg");
+  background-image: url("../media/monster-bg.jpg");
 }
 .monsters-back{
-  background-image: url("../images/Customized_IMG/monsters-card-back.png");
+  background-image: url("../media/monsters-card-back.png");
 }
 
 .hide-modal{
