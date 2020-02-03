@@ -21,4 +21,4 @@ Link: https://gwentmatch.ethancordes.com/
 
 # Example of App
 
-![](images/app_demo/gwent-match-demo.gif)
+![](assets/images/app_demo/gwent-match-demo.gif)
