@@ -3,12 +3,11 @@
 <head>
   <title>Memory Match</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="./assets/js/main_oop.js"></script>
   <script src="./assets/js/script.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Caesar Dressing" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bilbo Swash Caps" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Spirax" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
@@ -18,19 +17,18 @@
       <div id="accept-quest">Travel to the Inn</div>
     </div>
   </div>
-  <div id="content-container">
+  <div id="content-container" class="hide-modal">
     <header>
       <div id="title">Memory Match</div>
       <p>Gwent themed!</p>
     </header>
-    <div id="modal-reset-stats" class="hidden-modal">
+    <div id="modal-reset-stats" class="hide-modal">
       <div id="victory-message"></div>
       <div id="reset-stats"></div>
     </div>
     <div id="card-and-stats-container">
       <aside>
         <div id="stats">
-          <!-- <div id="stats-title">Ye 'Olde Stats</div> -->
           <div id="games-played">Games Played
             <div id="games-played-number">0</div>
           </div>
@@ -43,8 +41,7 @@
         </div>
       </aside>
       <main>
-        <div id="game-container">
-        </div>
+        <div id="game-container"></div>
       </main>
     </div>
   </div>
