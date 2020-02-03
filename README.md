@@ -20,3 +20,5 @@ Link: https://gwentmatch.ethancordes.com/
 - The user is able to replay the story when they complete all areas of the game
 
 # Example of App
+
+![](images/app_demo/gwent-match-demo.gif)
