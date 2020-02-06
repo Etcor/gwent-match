@@ -181,6 +181,15 @@ main{
   top: 70%;
 }
 
+#accept-quest, #reset-stats {
+  font-size: 46px;
+  animation: .5s linear .25s infinite alternate grow;
+}
+
+@keyframes grow {
+  from { opacity: 1;}
+  to { opacity: .5;}
+}
 /* Header Properties */
 
 header{
@@ -192,6 +201,7 @@ header{
   font-size: 64px;
   text-transform: uppercase;
   font-family: "Caesar Dressing", sans-serif;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747);
 }
 
 header > p{
@@ -230,6 +240,12 @@ header > p{
 
 .card:hover {
   cursor: pointer;
+  transform: scale(1.05);
+}
+
+.card.clicked:hover {
+  cursor: initial;
+  transform: scale(1) rotateY(180deg);
 }
 
 .front{
@@ -237,7 +253,7 @@ header > p{
 }
 
 .clicked{
-  transform: rotateY(180deg);
+  transform: scale(1) rotateY(180deg);
 }
 
 /* Background Properties */
