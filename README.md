@@ -7,6 +7,7 @@ A JavaScript memory matching application based on the card game Gwent from the W
 - JavaScript
 - HTML5
 - CSS3
+- PhotoShop
 
 # Live Demo
 
@@ -14,10 +15,10 @@ Link: https://gwentmatch.ethancordes.com/
 
 # Features
 
-- Users receive a quest upon starting the game
-- Users are treated to new cards and scenery upon winning a game
-- The app calculates the user's accuracy
-- The user is able to replay the story when they complete all areas of the game
+- Users receive a quest upon starting the game.
+- Users are treated to new cards and scenery upon winning a game.
+- The app calculates the user's accuracy.
+- The user is able to replay the story when they complete all areas of the game.
 
 # Example of App
 
