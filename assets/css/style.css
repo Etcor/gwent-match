@@ -7,6 +7,7 @@
   font-size: 36px;
   font-family: "Bilbo Swash Caps", sans-serif;
 }
+
 body,
 header,
 #content-container,
@@ -29,17 +30,9 @@ body,
   background-position: center;
 }
 
-#content-container,
-#card-and-stats-container,
-#game-container,
-#starting-modal,
-#starting-message,
-#modal-reset-stats,
-#stats > *,
-#stats,
-#title,
-.card,
-header{
+#content-container, #card-and-stats-container,
+#game-container, #starting-modal, #starting-message,
+#modal-reset-stats, #stats > *, #stats, #title, .card, header{
   position: relative;
 }
 
