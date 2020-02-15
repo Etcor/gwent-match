@@ -17,8 +17,8 @@ Link: https://gwentmatch.ethancordes.com/
 
 - Users receive a quest upon starting the game.
 - Users are treated to new cards and scenery upon winning a game.
-- The app calculates the user's accuracy.
 - The user is able to replay the story when they complete all areas of the game.
+- User can view games playes, attempts, and accuracy.
 
 # Example of App
 
