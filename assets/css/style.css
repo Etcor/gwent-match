@@ -111,7 +111,7 @@ main{
 
 #starting-modal{
   background-size: cover;
-  background-image: url("../media/notice-board.png");
+  background-image: url("../media/notice-board.jpg");
   z-index: 10000;
 }
 
@@ -297,7 +297,7 @@ header > p{
   background-image: url("../media/scoiatel-card-back.png");
 }
 .nilfgaard{
-  background-image: url("../media/nilfgard-bg.png");
+  background-image: url("../media/nilfgard-bg.jpg");
 }
 .nilfgaard-back{
   background-image: url("../media/nilfgard-card-back.png");
